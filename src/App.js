@@ -4,12 +4,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { increaseCounter, decreaseCounter } from './redux/action/counterAction';
 import MyComponent from './components/MyComponent';
 import React from 'react';
+import UserInfor from './components/UserInfor';
 class App extends React.Component {
   render() {
     return(
     <div>
       Hello World with ReactJS
       <MyComponent></MyComponent>
+      {/* <UserInfor></UserInfor> */}
+      {/* <UserInfor/> */}
     </div>
     );
   }
