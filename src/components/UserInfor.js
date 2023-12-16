@@ -1,9 +1,9 @@
 import React from "react";
 class UserInfor extends React.Component{
     state = {
-        name: 'Cuong',
-        address: '73QB',
-        age : 19,
+        id:'',
+        name: '',
+        age : '',
     };
     onClickFunction(event){
         alert('Onclick')
@@ -14,9 +14,6 @@ class UserInfor extends React.Component{
 
         });
     }
-    handleOnMoverOver(event){
-    }
-
 
     changeNameFromInputName(event) {
         // console.log(event.target.value);
@@ -31,17 +28,22 @@ class UserInfor extends React.Component{
         });
     }
 
-    handleOnSubmit(event){
+    handleOnSubmit = (event) => {
         event.preventDefault();
-        console.log(this.state)
-     }
+        // console.log(this.state);
+        this.props.addUsers({
+            id:Math.floor((Math.random()*100)+1),
+            name:this.state.name,
+            age:this.state.age,
+        });
+    }
+    
     render(){
         return(
             <div>
                 My first component<br></br>
                 My name is {this.state.name} and I'am {this.state.age} from {this.state.address}<br></br>              
                 <button onClick={(event) =>{this.onClickFunction(event)}}>Click here !</button>
-                <button onMouseOver={(event)=> {this.handleOnMoverOver(event)}}>Hover here !</button><br></br>
               
               <form onSubmit={(event)=>{this.handleOnSubmit(event)}}>
                 <label>Your name</label>
@@ -51,7 +53,7 @@ class UserInfor extends React.Component{
                 </input>
 
                 <label>Your age</label>
-                <input type="text" maxLength={2} pattern="\d{2}"
+                <input type="text" maxLength={2}
                 //    value={this.state.age} 
                    onChange={(event) => {this.changeAgeFromInputAge(event)}} >
                 </input>
