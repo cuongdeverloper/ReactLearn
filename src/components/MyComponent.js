@@ -7,15 +7,15 @@ class MyComponent extends React.Component {
 
     state = {
         listUsers: [
-            
+
         ]
     }
 
-    addNewUsers=(newUser) => {
-        //    console.log(newUser)
+    addNewUsers = (newUser) => {
         this.setState({
-            listUsers: [... this.state.listUsers, newUser],
+            listUsers: [newUser, ...this.state.listUsers],
         });
+        console.log(newUser)
     }
 
     render() {

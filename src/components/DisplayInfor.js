@@ -1,6 +1,7 @@
 import { type } from "@testing-library/user-event/dist/type";
 import React from "react";
-import './DisplayInfor.scss'
+import './DisplayInfor.scss';
+import logoReact from '../logo.svg';
 class DisplayInfor extends React.Component {
 
     state = {
@@ -18,6 +19,7 @@ class DisplayInfor extends React.Component {
         return (
             <div className="display-infor-container">
                 This is my test about PROPS.
+                <img className="logoReact" src={logoReact}/>
                 <br /><br />
                 <div>
                     <button onClick={()=> this.handleShowHide()} >
