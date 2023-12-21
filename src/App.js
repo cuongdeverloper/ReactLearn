@@ -10,7 +10,7 @@ class App extends React.Component {
     return(
     <div>
       Hello World with ReactJS
-      <MyComponent></MyComponent>
+      <MyComponent/>
       {/* <UserInfor></UserInfor> */}
       {/* <UserInfor/> */}
     </div>
