@@ -2,6 +2,7 @@ import { type } from "@testing-library/user-event/dist/type";
 import React, { useEffect, useState } from "react";
 import './DisplayInfor.scss';
 import logoReact from '../logo.svg';
+
 // class DisplayInfor extends React.Component {
 
 //     constructor(propss) {
@@ -79,10 +80,10 @@ const DisplayInfor = (props) => {
         <div className="display-infor-container">
             This is my test about PROPS.
             <>
-                <h1>Number: {value}</h1>
+                <p>Number: {value}</p>
                 <button onClick={() => setValue(v => v + 1)}>Click
                 </button>
-                <h1>calculation: {calculation}</h1>
+                <p>calculation: {calculation}</p>
             </>
             {/* <><h1>Some examples of useEffect: {count}</h1></> */}
             <img className="logoReact" src={logoReact} />

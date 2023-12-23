@@ -1,40 +1,43 @@
-import logo from './logo.svg';
 import './App.scss';
-import { useDispatch, useSelector } from 'react-redux';
-import { increaseCounter, decreaseCounter } from './redux/action/counterAction';
-import MyComponent from './components/MyComponent';
-import React from 'react';
-import UserInfor from './components/UserInfor';
-class App extends React.Component {
-  render() {
-    return(
-    <div>
-      Hello World with ReactJS
-      <MyComponent/>
-      {/* <UserInfor></UserInfor> */}
-      {/* <UserInfor/> */}
-    </div>
-    );
-  }
-}
-
-// const App = () => {
-//   const count = useSelector(state => state.counter.count);
-//   const dispatch = useDispatch();
-
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <div>Count = {count}</div>
-//         <button onClick={() => dispatch(increaseCounter())}>Increase</button>
-//         <button onClick={() => dispatch(decreaseCounter())}>Decrease</button>
-//       </header>
+import MyComponent from './LearnReact/MyComponent';
+import Header from './components/Header/Header'
+// class App extends React.Component {
+//   render() {
+//     return(
+//     <div>
+//       Hello World with ReactJS
+//       <MyComponent/>
+//       {/* <UserInfor></UserInfor> */}
+//       {/* <UserInfor/> */}
 //     </div>
-//   );
+//     );
+//   }
 // }
+
+const App = () => {
+  // const count = useSelector(state => state.counter.count);
+  // const dispatch = useDispatch();
+
+  // return (
+  //   <div className="App">
+  //     <header className="App-header">
+        
+  //       <img src={logo} className="App-logo" alt="logo" />
+  //       <p>
+  //         Edit <code>src/App.js</code> and save to reload.
+  //       </p>
+  //       <div>Count = {count}</div>
+  //       <button onClick={() => dispatch(increaseCounter())}>Increase</button>
+  //       <button onClick={() => dispatch(decreaseCounter())}>Decrease</button>
+  //     </header>
+  //   </div>
+  // );
+  return(
+    <div className='container'>
+      <Header/>
+      <MyComponent/>
+    </div>
+  )
+}
 
 export default App;
