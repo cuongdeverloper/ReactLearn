@@ -1,18 +1,7 @@
 import './App.scss';
 import MyComponent from './LearnReact/MyComponent';
-import Header from './components/Header/Header'
-// class App extends React.Component {
-//   render() {
-//     return(
-//     <div>
-//       Hello World with ReactJS
-//       <MyComponent/>
-//       {/* <UserInfor></UserInfor> */}
-//       {/* <UserInfor/> */}
-//     </div>
-//     );
-//   }
-// }
+import Header from './Header/Header'
+import { Outlet, Link } from "react-router-dom";
 
 const App = () => {
   // const count = useSelector(state => state.counter.count);
@@ -36,6 +25,7 @@ const App = () => {
     <div className='container'>
       <Header/>
       <MyComponent/>
+   
     </div>
   )
 }
