@@ -1,5 +1,3 @@
-
-
 body {
   padding: 0;
   margin: 0;
@@ -9,47 +7,72 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.app-container{
+  .header-container {
+    .navbar {
+      z-index: 3;
+      background-color: rgba(0,0,0,0) !important;
+      .nav-link {
+        &.active {
+          text-decoration: underline;
+        }
+      }
+    }
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.btn-header{
+  padding: 0 10px 0 10px;
+  margin-right: 6px;
+  border-radius: 7%;
+  height: 40px;
+  width: 80px;
+}
+.btn-login{
+  background-color: white;
+  &:hover{
+    opacity: 0.7;
+  }
+}
+.btn-signup{
+  background-color: rgb(59, 59, 59) ;
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+  &:hover{
+    background-color: rgb(27, 27, 27);
   }
 }
+  .app-container {
+    .HomePage-container{
+      position: relative;
+      .videoHomePage{
+        z-index: 1;
+        width: 100vw;
+
+        top: 0;
+        bottom: 0;
+        position: fixed;     
+      } 
+    }
+  }
+
+  .HomePage-content{
+    font-size: 1.5rem;
+    margin: 4em 0 0 2.5em;
+    position: absolute;
+    z-index: 2 ;
+    width: 40vw;
+    display: flex;
+    gap: 2em;
+    flex-direction: column;
+  }
+  .HomePage-titlecontent{
+    font-size: 2.4rem;
+    font-weight: 400;
+    word-wrap: break-word;
+    
+  }
+  .HomePage-textcontent{
+    font-size: 1rem;
+  }
+
+ 

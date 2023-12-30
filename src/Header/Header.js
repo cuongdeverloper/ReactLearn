@@ -2,43 +2,46 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
 
 
-function BasicExample() {
+const Header = (props) => {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <NavLink to='/' className='navbar-brand'>React-Bootstrap</NavLink>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             {/* <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="us">User</Nav.Link>
-            <Nav.Link href="adm">Admin</Nav.Link> */}
-            <Link to='/' className='nav-link'>Home</Link>
-            <Link to='/adm' className='nav-link'>Admin</Link>
-            <Link to='/us' className='nav-link'>User</Link>
-
+              <Nav.Link href="us">User</Nav.Link>
+              <Nav.Link href="adm">Admin</Nav.Link> */}
+            <NavLink to='/' className='nav-link'>Home</NavLink>
+            <NavLink to='/adm' className='nav-link'>Admin</NavLink>
+            <NavLink to='/us' className='nav-link'>User</NavLink>
+            <NavLink to='/learnReact' className='nav-link'>LearnReact</NavLink>
           </Nav>
           <Nav>
-          <NavDropdown title="Setting" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Log in</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3" className='disabled'>Log out</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
+            <button className='btn-header btn-login'>Log in</button>
+            <button className='btn-header btn-signup'>Sign up</button>
+            {/* <NavDropdown title="Setting" id="basic-nav-dropdown">
+                <NavDropdown.Item href="#action/3.1">Log in</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">
+                  Another action
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3" className='disabled'>Log out</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action/3.4">
+                  Separated link
+                </NavDropdown.Item>
+              </NavDropdown> */}
           </Nav>
-          
+
         </Navbar.Collapse>
       </Container>
     </Navbar>
   );
 }
 
-export default BasicExample;
+
+export default Header;

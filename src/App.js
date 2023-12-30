@@ -1,7 +1,8 @@
 import './App.scss';
-import MyComponent from './LearnReact/MyComponent';
+import MyComponent from './components/LearnReact/MyComponent';
 import Header from './Header/Header'
 import { Outlet, Link } from "react-router-dom";
+
 
 const App = () => {
   // const count = useSelector(state => state.counter.count);
@@ -10,7 +11,7 @@ const App = () => {
   // return (
   //   <div className="App">
   //     <header className="App-header">
-        
+
   //       <img src={logo} className="App-logo" alt="logo" />
   //       <p>
   //         Edit <code>src/App.js</code> and save to reload.
@@ -21,11 +22,20 @@ const App = () => {
   //     </header>
   //   </div>
   // );
-  return(
-    <div className='container'>
-      <Header/>
-      <MyComponent/>
-   
+  return (
+    <div className=''>
+
+      <div className='app-container'>
+        <div className='header-container'>
+          <Header />
+        </div>
+        <Outlet/>
+      </div>
+
+      <div className='learnReact-container'>
+
+      </div>
+
     </div>
   )
 }

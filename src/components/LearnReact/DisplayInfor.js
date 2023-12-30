@@ -1,52 +1,7 @@
 import { type } from "@testing-library/user-event/dist/type";
 import React, { useEffect, useState } from "react";
 import './DisplayInfor.scss';
-import logoReact from '../logo.svg';
-
-// class DisplayInfor extends React.Component {
-
-//     constructor(propss) {
-//         super(propss);
-//         this.state = {
-//             showHideListName: true,
-//         }
-//     }
-
-//     handleShowHide = () => {
-//         this.setState({
-//             showHideListName: !this.state.showHideListName,
-//         })
-//     }
-
-//     render() {
-//         const { users } = this.props;
-//         return (
-//             <div className="display-infor-container">
-//                 This is my test about PROPS.
-//                 <img className="logoReact" src={logoReact} />
-//                 <br /><br />
-//                 <>
-//                     <button onClick={() => this.handleShowHide()} >
-//                         {this.state.showHideListName ? "hide" : "show"}
-//                     </button>
-//                 </>
-//                 {
-//                     this.state.showHideListName &&
-//                     (<>
-//                         {users.map((data) => {
-//                             return (
-//                                 <div key={data.id} className={Number(data.age) > 20 ? "fontBig" : "fontSmall"} >
-//                                     My name is {data.name} and I'am {data.age}
-//                                     <button onClick={() => this.props.removeUser(data.id)}>X</button>
-//                                 </div>
-//                             );
-//                         })}
-//                     </>)
-//                 }
-//             </div>
-//         )
-//     }
-// }
+import logoReact from '../../logo.svg';
 
 const DisplayInfor = (props) => {
     const { users } = props;
