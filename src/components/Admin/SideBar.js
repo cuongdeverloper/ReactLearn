@@ -8,85 +8,110 @@ import {
     SidebarFooter,
     SidebarContent,
 } from 'react-pro-sidebar';
-
-import { FaTachometerAlt, FaGem, FaList, FaGithub, FaRegLaughWink, FaHeart,FiChevronsLeft, FiChevronsRight  } from 'react-icons/fa';
+import { FaTachometerAlt, FaGem, FaList, FaGithub, FaRegLaughWink, FaHeart, FaReact } from 'react-icons/fa';
+import { GoArrowRight, GoArrowLeft } from "react-icons/go";
+//https://react-icons.github.io/react-icons/
 import sidebarBg from '../../assests/bg2.jpg';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 const SideBar = (props) => {
-    const { image, collapsed, toggled, handleToggleSidebar } = props;
+    const { image } = props;
+    // const{handleToggleSidebar} = props;
+    const [collapsed, setCollapsed] = useState(false);
+
+    const [toggled, setToggled] = useState(false);
+    const [tfReactIcon, settfReactIcon] = useState(true);
+
+    const handleCollapsedChange = () => {
+        setCollapsed(!collapsed);
+        settfReactIcon(!tfReactIcon);
+    };
+
     return (
         <>
             <ProSidebar
                 image={sidebarBg}
                 collapsed={collapsed}
                 toggled={toggled}
-                breakPoint="md"
-                onToggle={handleToggleSidebar}
+                // handleToggleSidebar={handleToggleSidebar}
+                // handleCollapsedChange={handleCollapsedChange}
             >
+
                 <SidebarHeader>
-                    <div
-                        style={{
-                            padding: '24px',
-                            textTransform: 'uppercase',
-                            fontWeight: 'bold',
-                            fontSize: 14,
-                            letterSpacing: '1px',
-                            overflow: 'hidden',
-                            textOverflow: 'ellipsis',
-                            whiteSpace: 'nowrap',
-                        }}
-                    >
-                        Hoi Dan IT
-                    </div>
+                    <Menu>
+
+                        <MenuItem
+                            onClick={handleCollapsedChange}
+                            icon={collapsed ? <GoArrowRight /> : <GoArrowLeft />}
+                        >
+                            <div
+                                style={{
+                                    padding: "9px",
+                                    // textTransform: "uppercase",
+                                    fontWeight: "bold",
+                                    fontSize: 14,
+                                    letterSpacing: "1px"
+                                }}
+                            >
+                                REACT JS
+                            </div>
+                        </MenuItem>
+
+
+                    </Menu>
+                    <Menu className={tfReactIcon ? 'reactIconFa' : ''}>
+                        <MenuItem
+                            icon={<FaReact color='rgb(59,130,246)' size={'2.5em'} />}>
+                        </MenuItem>
+                    </Menu>
+
                 </SidebarHeader>
 
                 <SidebarContent>
-                    <Menu iconShape="circle">
-                        <MenuItem
-                            icon={<FaTachometerAlt />}
-                            suffix={<span className="badge red">New</span>}
-                        >
-                            dashboard
+                    <Menu iconShape='square'>
+                        <MenuItem icon={<FaTachometerAlt />} suffix={<span className="badge red" >New</span>}>
+                            Dash Board
                         </MenuItem>
-                        <MenuItem icon={<FaGem />}> components </MenuItem>
+                        <MenuItem icon={<FaGem />}> React JS </MenuItem>
                     </Menu>
                     <Menu iconShape="circle">
-                        <SubMenu
-                            suffix={<span className="badge yellow">3</span>}
-                            icon={<FaRegLaughWink />}
-                        >
-                            <MenuItem> 1</MenuItem>
-                            <MenuItem> 2</MenuItem>
-                            <MenuItem> 3</MenuItem>
+
+                        <SubMenu icon={<FaRegLaughWink />} suffix={<span className="badge yellow">3</span>} title={'Manage'}>
+                            <MenuItem>                            
+                                <Link to='manage-user' className='nav-link'>Manage User</Link>
+                            </MenuItem>
+                            <MenuItem>
+                                <Link to='manage-quizz' className='nav-link'>Manage quizz</Link>
+                            </MenuItem>
+                            <MenuItem>
+                                Manage question
+                            </MenuItem>
                         </SubMenu>
 
                     </Menu>
                 </SidebarContent>
 
                 <SidebarFooter style={{ textAlign: 'center' }}>
-                    <div
-                        className="sidebar-btn-wrapper"
-                        style={{
-                            padding: '20px 24px',
-                        }}
-                    >
-                        <a
-                            href="https://github.com/azouaoui-med/react-pro-sidebar"
-                            target="_blank"
-                            className="sidebar-btn"
-                            rel="noopener noreferrer"
-                        >
-                            <FaGithub />
-                            <span style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}>
-                                viewSource
-                            </span>
-                        </a>
-                    </div>
+                    <Menu>
+                        <MenuItem>
+                            <a
+                                href="https://github.com/azouaoui-med/react-pro-sidebar"
+                                target="_blank"
+                                className="sidebar-btn"
+                                rel="noopener noreferrer">
+                                <FaGithub />
+                                <span style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}>
+                                    ViewSource
+                                </span>
+                            </a>
+                        </MenuItem>
+                    </Menu>
                 </SidebarFooter>
             </ProSidebar>
         </>
     )
 }
 
-export default SideBar;
+export default SideBar

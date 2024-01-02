@@ -1,7 +1,26 @@
-.Admin-container{
+.Admin-container {
     display: flex;
-    height: 100vh;
+    height: 100vh !important;
+
 }
-.badge.red{
-    color: rgb(220, 126, 126);
+// .Admin-content{
+//     width: 100%;
+// }
+.reactIconFa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -12px;
+}
+
+.pro-sidebar-header {
+    .pro-menu.inner-submenu-arrows {
+        .pro-menu-item {
+            .pro-inner-item {
+                .suffix-wrapper {
+                    font-size: 25px;
+                }
+            }
+        }
+    }
 }

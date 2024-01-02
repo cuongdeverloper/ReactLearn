@@ -23,20 +23,20 @@ const App = () => {
   //   </div>
   // );
   return (
-    <div className=''>
+    <>
 
       <div className='app-container'>
         <div className='header-container'>
           <Header />
         </div>
-        <Outlet/>
+        <Outlet />
       </div>
 
       <div className='learnReact-container'>
 
       </div>
 
-    </div>
+    </>
   )
 }
 
