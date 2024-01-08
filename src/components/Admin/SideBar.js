@@ -72,7 +72,7 @@ const SideBar = (props) => {
                 <SidebarContent>
                     <Menu iconShape='square'>
                         <MenuItem icon={<FaTachometerAlt />} suffix={<span className="badge red" >New</span>}>
-                            Dash Board
+                             <Link to='/adm' className='nav-link'>DashBoard</Link>
                         </MenuItem>
                         <MenuItem icon={<FaGem />}> React JS </MenuItem>
                     </Menu>
@@ -86,7 +86,7 @@ const SideBar = (props) => {
                                 <Link to='manage-quizz' className='nav-link'>Manage quizz</Link>
                             </MenuItem>
                             <MenuItem>
-                                Manage question
+                                <Link to='manage-question' className='nav-link'>Manage question</Link>
                             </MenuItem>
                         </SubMenu>
 

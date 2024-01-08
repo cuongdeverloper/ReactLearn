@@ -7,4 +7,4 @@ const User = (props) => {
         </div>
     )
 }
-export default User
+export default User;

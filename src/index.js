@@ -13,6 +13,7 @@ import HomePage from './components/Home/HomePage';
 import ManageUser from './components/Admin/Content/ManageUser';
 import DashBoard from './components/Admin/Content/DashBoard';
 import ManageQuizz from './components/Admin/Content/ManageQuizz';
+import ManageQuestion from './components/Admin/Content/ManageQuestion';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -31,7 +32,7 @@ root.render(
           <Route index element={<DashBoard />}/>
           <Route path="manage-user" element={<ManageUser />} />
           <Route path="manage-quizz" element={<ManageQuizz />} />
-
+          <Route path="manage-question" element={<ManageQuestion />} />
         </Route>
       </Routes>
     </BrowserRouter>

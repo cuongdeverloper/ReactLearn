@@ -2,6 +2,7 @@ const ManageQuizz = (props) => {
     return(
         <div>
             ManageQuizz
+            
         </div>
     );
 }
