@@ -1,3 +1,7 @@
+* {
+    padding: 0;
+    margin: 0;
+}
 .modal-addNewUser{
    .modal-body{
     .img-preview{
@@ -12,6 +16,11 @@
         max-height: 100%;
     }
    }
+}
+.Manageuser-content{
+    .div-btn-addNewUser{
+        margin: 10px 0 ;
+    }
 }
 .modal-addNewUser{
     .modal-body{

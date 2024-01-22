@@ -63,7 +63,7 @@ const SideBar = (props) => {
                     </Menu>
                     <Menu className={tfReactIcon ? 'reactIconFa' : ''}>
                         <MenuItem
-                            icon={<FaReact color='rgb(59,130,246)' size={'2.5em'} />}>
+                            icon={<FaReact color='rgb(18 199 241)' size={'2.5em'} />}>
                         </MenuItem>
                     </Menu>
 
