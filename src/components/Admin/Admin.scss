@@ -1,7 +1,9 @@
 .Admin-container {
     display: flex;
     height: 100vh !important;
-
+    .Admin-content {
+        width: 100%;
+    }
 }
 
 // .Admin-content{

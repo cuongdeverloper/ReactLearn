@@ -11,4 +11,7 @@ const AppendApi = (email, password,username,role,img) => {
         return axios.post('api/v1/participant', form);
         
 }
-export{AppendApi}
+const GetApi = ()=>{
+    return axios.get('api/v1/participant/all');
+}
+export{AppendApi, GetApi}

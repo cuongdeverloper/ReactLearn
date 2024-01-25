@@ -1,36 +1,41 @@
-import { Table } from "react-bootstrap";
-const TableUsers = () => {
-    
-    return(
-        <Table striped="columns" bordered hover size="sm">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Username</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td colSpan={2}>Larry the Bird</td>
-          <td>@twitter</td>
-        </tr>
-      </tbody>
-    </Table>
-    )
+import { Button, Table } from "react-bootstrap";
+const TableUsers = (props) => {
+  const { listUser } = props;
+  return (
+    <>
+      <Table striped="columns" bordered hover size="sm">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>UserName</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {listUser && listUser.length > 0 && listUser.map((item, index) => {
+            return (
+
+              <tr key={`table-user-${index}`}>
+                <td>{item.id}</td>
+                <td>{item.username}</td>
+                <td>{item.email}</td>
+                <td>{item.role}</td>
+                <td><Button>View</Button></td>
+              </tr>
+
+
+            )
+          })}
+          {listUser && listUser.length === 0 && <tr>
+            <td colSpan={'4'}>Not found data</td>
+          </tr>
+
+          }
+        </tbody>
+      </Table>
+    </>
+  )
 }
 export default TableUsers;

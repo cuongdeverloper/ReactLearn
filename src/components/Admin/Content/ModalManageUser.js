@@ -6,6 +6,7 @@ import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import { AppendApi } from '../../../services/ApiServices';
+
 const ModalManageUser = (props) => {
     const { show, setShow } = props;
     const handleClose = () => {
@@ -56,6 +57,7 @@ const ModalManageUser = (props) => {
         if (data && data.EC === 0) {
             toast.success(data.EM);
             handleClose();
+            await props.fetchListUser();
         }
         if (data && data.EC !== 0) {
             toast.error(data.EM);
