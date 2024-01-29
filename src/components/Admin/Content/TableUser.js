@@ -1,6 +1,6 @@
 import { Button, Table } from "react-bootstrap";
 const TableUsers = (props) => {
-  const { listUser } = props;
+  const { listUser} = props;
   return (
     <>
       <Table striped="columns" bordered hover size="sm">
@@ -15,23 +15,25 @@ const TableUsers = (props) => {
         </thead>
         <tbody>
           {listUser && listUser.length > 0 && listUser.map((item, index) => {
-            return (
-
-              <tr key={`table-user-${index}`}>
-                <td>{item.id}</td>
-                <td>{item.username}</td>
-                <td>{item.email}</td>
-                <td>{item.role}</td>
-                <td><Button>View</Button></td>
-              </tr>
-
-
-            )
+            // if(item.role !== '') {
+              return (
+                <tr key={`table-user-${index}`}>
+                  <td>{item.id}</td>
+                  <td>{item.username}</td>
+                  <td>{item.email}</td>
+                  <td>{item.role}</td>
+                  <td>
+                    <Button className="btn btn-secondary mx-1" onClick={() => props.handleButtonPreviewUser(item)}>View</Button>
+                    <Button className="btn btn-primary mx-1" onClick={()=>props.handleButtonUpdateUser(item)}>Update</Button>
+                    <Button className="btn btn-danger mx-1">Delete</Button>
+                  </td>
+                </tr>
+              )
+            // }
           })}
           {listUser && listUser.length === 0 && <tr>
             <td colSpan={'4'}>Not found data</td>
           </tr>
-
           }
         </tbody>
       </Table>

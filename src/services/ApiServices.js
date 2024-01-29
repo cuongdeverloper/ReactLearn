@@ -11,7 +11,16 @@ const AppendApi = (email, password,username,role,img) => {
         return axios.post('api/v1/participant', form);
         
 }
+const UpdateApi = (id,username,role,img) => {
+    const FormData = require('form-data');
+        const form = new FormData();
+        form.append('id', id);
+        form.append('username', username);
+        form.append('role', role);
+        form.append('userImage', img);
+        return axios.put('api/v1/participant', form);     
+}
 const GetApi = ()=>{
     return axios.get('api/v1/participant/all');
 }
-export{AppendApi, GetApi}
+export{AppendApi, GetApi, UpdateApi}

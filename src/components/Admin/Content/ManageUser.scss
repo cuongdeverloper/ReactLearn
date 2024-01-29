@@ -2,8 +2,8 @@
     padding: 0;
     margin: 0;
 }
-.modal-addNewUser{
-   .modal-body{
+.modal-addNewUser {
+   
     .img-preview{
         height: 165px;
         border: 1px dashed rgb(181, 176, 176);
@@ -15,17 +15,15 @@
         max-width: 100%;
         max-height: 100%;
     }
-   }
+   
 }
 .Manageuser-content{
     .div-btn-addNewUser{
         margin: 10px 0 ;
     }
 }
-.modal-addNewUser{
-    .modal-body{
-        .div-upFile{
-            
+.modal-addNewUser{ 
+        .div-upFile{          
             .label-uploadFile{
                 gap: 4px;
                 display: flex;
@@ -39,13 +37,13 @@
                 background-color: rgb(243, 242, 242);
                 &:hover{
                     background-color: rgb(237, 235, 235);                }
-            }
-            
+            }            
         }
-    }
+    
 }
 .ManageUser-container{
     max-height: 100%;
     overflow:scroll;
     scroll-behavior: smooth;
 }
+

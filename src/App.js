@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
- 
+
   return (
     <>
       <div className='app-container'>
@@ -15,10 +15,9 @@ const App = () => {
         </div>
         <Outlet />
       </div>
-
+          
       <div className='learnReact-container'>
       </div>
-      
     </>
   )
 }
