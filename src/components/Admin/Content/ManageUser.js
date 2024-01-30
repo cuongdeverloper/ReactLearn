@@ -5,13 +5,16 @@ import { useEffect, useState } from "react";
 import { GetApi } from "../../../services/ApiServices";
 import ModalUpdateUser from "./ModalUpdateUser";
 import ModalPreviewUser from "./ModalPreviewUser";
+import ModalDeleteUser from "./ModalDeleteUser";
 const ManageUser = (props) => {
 
     const [showHideModalManageUser, setShowHideModalManageUser] = useState(false);
     const [showUpdateUser, setShowUpdateUser] = useState(false);
     const [showPreviewUser, setShowPreviewUser] = useState(false);
+    const [showDeleteUser, setShowDeleteUser] = useState(false);
     const [dataPreview, setDataPreview] = useState({});
     const [dataUpdate, setDataUpdate] = useState({});
+    const [dataDelete, setDataDelete] = useState({});
     const [listUser, setListUser] = useState([]);
     const funcSetSh = () => {
         setShowHideModalManageUser(true);
@@ -28,7 +31,10 @@ const ManageUser = (props) => {
         setDataUpdate(data);
     }
 
-
+    const handleButtonDeleteUser = (data) => {
+        setShowDeleteUser(true);
+        setDataDelete(data);
+    }
     useEffect(() => {
         fetchListUser();
     }, [])
@@ -60,7 +66,8 @@ const ManageUser = (props) => {
 
                     <TableUsers listUser={listUser} 
                     handleButtonUpdateUser={handleButtonUpdateUser} 
-                    handleButtonPreviewUser={handleButtonPreviewUser}/>
+                    handleButtonPreviewUser={handleButtonPreviewUser}
+                    handleButtonDeleteUser={handleButtonDeleteUser}/>
 
                 </div>
 
@@ -82,6 +89,12 @@ const ManageUser = (props) => {
             dataPreview={dataPreview}
             fetchListUser={fetchListUser}
             resetApi={resetApi}
+            />
+            <ModalDeleteUser
+            show = {showDeleteUser}
+            setShow = {setShowDeleteUser}
+            dataDelete = {dataDelete}
+            fetchListUser={fetchListUser}
             />
         </div>
     );

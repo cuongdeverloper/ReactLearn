@@ -20,7 +20,11 @@ const UpdateApi = (id,username,role,img) => {
         form.append('userImage', img);
         return axios.put('api/v1/participant', form);     
 }
+const DeleteApi = (userId) => {
+    return axios.delete('api/v1/participant', { data: {id: userId}});
+}
+
 const GetApi = ()=>{
     return axios.get('api/v1/participant/all');
 }
-export{AppendApi, GetApi, UpdateApi}
+export{AppendApi, GetApi, UpdateApi, DeleteApi}
