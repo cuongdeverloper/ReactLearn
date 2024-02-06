@@ -47,7 +47,9 @@ const ModalManageUser = (props) => {
         if (data && data.EC === 0) {
             toast.success(data.EM);
             handleClose();
-            await props.fetchListUser();
+            // await props.fetchListUser();
+            props.setCurrentPage(1);
+            await props.fetchListUserWithPagination(1);
         }
         if (data && data.EC !== 0) {
             toast.error(data.EM);
@@ -92,7 +94,7 @@ const ModalManageUser = (props) => {
                         <div className="col-md-4">
                             <label htmlFor="inputState" className="form-label">ROLE</label>
                             <select id="inputRole" className="form-select" value={role} onChange={(event) => setRole(event.target.value)}>
-                                <option>Student</option>
+                                <option selected>Student</option>
                                 <option>Lecturer</option>
                                 <option>Viewer</option>
                             </select>

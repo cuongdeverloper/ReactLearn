@@ -19,6 +19,7 @@ const ManageUser = () => {
     const [dataDelete, setDataDelete] = useState({});
     const [listUser, setListUser] = useState([]);
     const [pageCount, setPageCount] = useState(0);
+    const [currentPage, setCurrentPage] = useState(0);
     const funcSetSh = () => {
         setShowHideModalManageUser(true);
     }
@@ -52,7 +53,7 @@ const ManageUser = () => {
 
     const limitUser = 5;
     const fetchListUserWithPagination = async (page) => {
-        let res = await GetUserPaginate(page,limitUser);
+        let res = await GetUserPaginate(page, limitUser);
         if (res.EC === 0) {
             setListUser(res.DT.users)
             setPageCount(res.DT.totalPages)
@@ -82,13 +83,15 @@ const ManageUser = () => {
                     handleButtonPreviewUser={handleButtonPreviewUser}
                     handleButtonDeleteUser={handleButtonDeleteUser}/> */}
 
-                    <TableUserPagination 
-                    listUser={listUser} 
-                    pageCount={pageCount}
-                    handleButtonUpdateUser={handleButtonUpdateUser} 
-                    handleButtonPreviewUser={handleButtonPreviewUser}
-                    handleButtonDeleteUser={handleButtonDeleteUser}
-                    fetchListUserWithPagination={fetchListUserWithPagination}
+                    <TableUserPagination
+                        listUser={listUser}
+                        pageCount={pageCount}
+                        handleButtonUpdateUser={handleButtonUpdateUser}
+                        handleButtonPreviewUser={handleButtonPreviewUser}
+                        handleButtonDeleteUser={handleButtonDeleteUser}
+                        fetchListUserWithPagination={fetchListUserWithPagination}
+                        currentPage={currentPage}
+                        setCurrentPage={setCurrentPage}
                     />
 
                 </div>
@@ -96,27 +99,40 @@ const ManageUser = () => {
             </div>
             <ModalManageUser show={showHideModalManageUser}
                 setShow={setShowHideModalManageUser}
-                fetchListUser={fetchListUser} />  
-                {/* / Render lai user/ */}
+                // fetchListUser={fetchListUser} 
+                fetchListUserWithPagination={fetchListUserWithPagination}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+                />
+            {/* / Render lai user/ */}
 
             <ModalUpdateUser show={showUpdateUser}
                 setShow={setShowUpdateUser}
                 dataUpdate={dataUpdate}
                 resetApi={resetApi}
-                fetchListUser={fetchListUser}
+                // fetchListUser={fetchListUser}
+                fetchListUserWithPagination={fetchListUserWithPagination}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
             />
             <ModalPreviewUser
-            show={showPreviewUser}
-            setShow={setShowPreviewUser}
-            dataPreview={dataPreview}
-            fetchListUser={fetchListUser}
-            resetApi={resetApi}
+                show={showPreviewUser}
+                setShow={setShowPreviewUser}
+                dataPreview={dataPreview}
+                // fetchListUser={fetchListUser}
+                fetchListUserWithPagination={fetchListUserWithPagination}
+                // resetApi={resetApi}
+                // currentPage={currentPage}
+                // setCurrentPage={setCurrentPage}
             />
             <ModalDeleteUser
-            show = {showDeleteUser}
-            setShow = {setShowDeleteUser}
-            dataDelete = {dataDelete}
-            fetchListUser={fetchListUser}
+                show={showDeleteUser}
+                setShow={setShowDeleteUser}
+                dataDelete={dataDelete}
+                fetchListUser={fetchListUser}
+                fetchListUserWithPagination={fetchListUserWithPagination}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
             />
         </div>
     );

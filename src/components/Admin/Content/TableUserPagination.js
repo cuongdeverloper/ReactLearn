@@ -8,6 +8,7 @@ const TableUserPagination = (props) => {
     // Invoke when user click to request another page.
     const handlePageClick = (event) => {
         props.fetchListUserWithPagination(+event.selected + 1);
+        props.setCurrentPage(+event.selected + 1);
         // console.log(`User requested page number ${+event.selected + 1}, `);
     };
    
@@ -68,7 +69,7 @@ const TableUserPagination = (props) => {
                 containerClassName="pagination"
                 activeClassName="active"
                 renderOnZeroPageCount={null}
-
+                forcePage={props.currentPage-1}    /* Fix bug paginate */
             />
             </div>
         </>
