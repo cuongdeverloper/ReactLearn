@@ -7,7 +7,7 @@ const ModalDeleteUser = (props) => {
   const {show, setShow, dataDelete} = props;
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+
 
   const handleDeleteUser = async() => {
     const data = await DeleteApi(dataDelete.id);
@@ -22,13 +22,9 @@ const ModalDeleteUser = (props) => {
         toast.error(data.EM);
     }
 }
-
+ 
   return (
-    <>
-      <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
-      </Button>
-
+    <>  
       <Modal show={show} 
       onHide={handleClose}
       backdrop="static"

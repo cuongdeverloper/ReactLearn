@@ -23,8 +23,11 @@ const UpdateApi = (id,username,role,img) => {
 const DeleteApi = (userId) => {
     return axios.delete('api/v1/participant', { data: {id: userId}});
 }
+const GetUserPaginate = (page,limit) => {
+    return axios.get(`api/v1/participant?page=${page}&limit=${limit}`);
+}
 
 const GetApi = ()=>{
     return axios.get('api/v1/participant/all');
 }
-export{AppendApi, GetApi, UpdateApi, DeleteApi}
+export{AppendApi, GetApi, UpdateApi, DeleteApi, GetUserPaginate}

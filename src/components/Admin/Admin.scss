@@ -3,9 +3,18 @@
     height: 100vh !important;
     .Admin-content {
         width: 100%;
+        .ManageUser-container{
+            height: 100%;
+            .Manageuser-content{
+                max-height: 100%;
+            }
+        }
     }
 }
-
+.TableUserPagination-paginate{
+    display: flex;
+    justify-content: center;
+}
 // .Admin-content{
 //     width: 100%;
 // }

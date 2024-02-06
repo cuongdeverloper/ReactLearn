@@ -6,7 +6,9 @@ import { GetApi } from "../../../services/ApiServices";
 import ModalUpdateUser from "./ModalUpdateUser";
 import ModalPreviewUser from "./ModalPreviewUser";
 import ModalDeleteUser from "./ModalDeleteUser";
-const ManageUser = (props) => {
+import TableUserPagination from "./TableUserPagination";
+import { GetUserPaginate } from "../../../services/ApiServices";
+const ManageUser = () => {
 
     const [showHideModalManageUser, setShowHideModalManageUser] = useState(false);
     const [showUpdateUser, setShowUpdateUser] = useState(false);
@@ -16,6 +18,7 @@ const ManageUser = (props) => {
     const [dataUpdate, setDataUpdate] = useState({});
     const [dataDelete, setDataDelete] = useState({});
     const [listUser, setListUser] = useState([]);
+    const [pageCount, setPageCount] = useState(0);
     const funcSetSh = () => {
         setShowHideModalManageUser(true);
     }
@@ -36,15 +39,25 @@ const ManageUser = (props) => {
         setDataDelete(data);
     }
     useEffect(() => {
-        fetchListUser();
+        fetchListUserWithPagination(1)
     }, [])
     const fetchListUser = async () => {
         let res = await GetApi();
         if (res.EC === 0) {
             setListUser(res.DT)
-            //   console.log(res)
+            //   console.log(res.DT)
         }
         // console.log(listUser)
+    }
+
+    const limitUser = 5;
+    const fetchListUserWithPagination = async (page) => {
+        let res = await GetUserPaginate(page,limitUser);
+        if (res.EC === 0) {
+            setListUser(res.DT.users)
+            setPageCount(res.DT.totalPages)
+            // console.log("check res ",res.DT)
+        }
     }
 
     const resetApi = () => {
@@ -64,10 +77,19 @@ const ManageUser = (props) => {
 
                 <div className="div-btn-tableUsers">
 
-                    <TableUsers listUser={listUser} 
+                    {/* <TableUsers listUser={listUser} 
                     handleButtonUpdateUser={handleButtonUpdateUser} 
                     handleButtonPreviewUser={handleButtonPreviewUser}
-                    handleButtonDeleteUser={handleButtonDeleteUser}/>
+                    handleButtonDeleteUser={handleButtonDeleteUser}/> */}
+
+                    <TableUserPagination 
+                    listUser={listUser} 
+                    pageCount={pageCount}
+                    handleButtonUpdateUser={handleButtonUpdateUser} 
+                    handleButtonPreviewUser={handleButtonPreviewUser}
+                    handleButtonDeleteUser={handleButtonDeleteUser}
+                    fetchListUserWithPagination={fetchListUserWithPagination}
+                    />
 
                 </div>
 
