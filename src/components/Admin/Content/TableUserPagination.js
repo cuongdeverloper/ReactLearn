@@ -69,7 +69,8 @@ const TableUserPagination = (props) => {
                 containerClassName="pagination"
                 activeClassName="active"
                 renderOnZeroPageCount={null}
-                forcePage={props.currentPage-1}    /* Fix bug paginate */
+                forcePage={props.currentPage - 1}    /* Fix bug paginate */
+            
             />
             </div>
         </>

@@ -25,6 +25,7 @@ const ModalUpdateUser = (props) => {
         if(!_.isEmpty(dataUpdate)) {
             setEmail(dataUpdate.email);
             setRole(dataUpdate.role);
+            setUserName(dataUpdate.username)
             setPreviewImg(`data:image/jpeg;base64,${dataUpdate.image}`);
         }
     }, [dataUpdate]);
@@ -37,14 +38,18 @@ const ModalUpdateUser = (props) => {
             toast.success(data.EM);
             handleClose();
             // await props.fetchListUser();
-            props.setCurrentPage(1);
-            await props.fetchListUserWithPagination(1);
+            
+            await props.fetchListUserWithPagination(props.currentPage);
         }
         if (data && data.EC !== 0) {
             toast.error(data.EM);
         }
     }
-    
+    const handleUploadImg = (event) => {
+        setImg(event.target.files[0]);
+        setPreviewImg(URL.createObjectURL(event.target.files[0]));        // const file = event.target.files[0];
+       
+    }
     const [email, setEmail] = useState('');
     // const [password, setPassWord] = useState('');
     const [username, setUserName] = useState('');
@@ -113,7 +118,7 @@ const ModalUpdateUser = (props) => {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={() => { handleClose(); handleUpdateUser(); }}>Understood</Button>
+                    <Button variant="primary" onClick={() => { handleClose(); handleUpdateUser(); }}>Save Change</Button>
                 </Modal.Footer>
             </Modal>
         </>
