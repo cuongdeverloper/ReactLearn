@@ -41,38 +41,46 @@ body {
     background-color: rgb(27, 27, 27);
   }
 }
-  .app-container {
-    .HomePage-container{
-      position: relative;
-      .videoHomePage{
-        z-index: 1;
-        width: 100vw;
+.HomePage-container {
+  position: relative;
+  width: 100%;
+}
 
-        top: 0;
-        bottom: 0;
-        position: fixed;     
-      } 
-    }
-  }
+.videoHomePage {
+  width: 100%;
+  height: auto;
+}
 
-  .HomePage-content{
-    font-size: 1.5rem;
-    margin: 4em 0 0 2.5em;
-    position: absolute;
-    z-index: 2 ;
-    width: 40vw;
-    display: flex;
-    gap: 2em;
-    flex-direction: column;
-  }
-  .HomePage-titlecontent{
-    font-size: 2.4rem;
-    font-weight: 400;
-    word-wrap: break-word;
-    
-  }
-  .HomePage-textcontent{
-    font-size: 1rem;
-  }
+.HomePage-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: rgb(162, 181, 202);
+}
 
- 
+.HomePage-titlecontent {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.HomePage-textcontent {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+.HomePage-start button {
+  padding: 10px 20px;
+  font-size: 1.2em;
+  background-color: #61dafb;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.HomePage-start button:hover {
+  background-color: #47a7f5;
+}

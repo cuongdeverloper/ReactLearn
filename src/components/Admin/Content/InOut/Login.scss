@@ -1,0 +1,89 @@
+.Login-container {
+    // background-image: url(../../../../../img/green-landscape-mountain-fog-trees-forest-house-autumn-7360x4912-2867.jpg);
+    // background-size: cover;
+    background-color: rgb(200, 197, 197);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    opacity: 0.9;
+}
+
+.Login-container .Login-header {
+    width: 100%;
+    opacity: 0.8;
+}
+
+.Login-container .Login-body {
+    width: 100%;
+    max-height: 100%;
+    display: flex;
+    justify-content: center;
+
+    form {
+        background-color: rgb(242, 248, 248);
+        width: 80%;
+        /* Điều chỉnh kích thước của form tương ứng với kích thước màn hình */
+        max-width: 400px;
+        /* Điều chỉnh kích thước tối đa của form */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 5em;
+        height: 450px;
+
+    }
+}
+
+.Login-header-donthaveyet {
+    
+    a {
+        color: rgb(46, 47, 47);
+        text-decoration: none;
+        
+    }
+}
+
+.Login-body-social {
+    display: flex;
+    flex-direction: row;
+    column-gap: 6px;
+
+    .div-icon-social {
+        height: 2em;
+        width: 5em;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.Login-body-social .icon-social {
+
+    color: azure;
+}
+.input-field{
+    background-color: rgb(232, 227, 227);
+}
+.Login-body-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 85%;
+    .form-check{
+        display: flex;
+        align-self: flex-start;
+    }
+    .form-input {
+        min-width: 100%;
+    }
+}
+
+.Login-body-forgotPassword a{
+    text-decoration: none;
+    color: rgb(46, 47, 47);
+}
