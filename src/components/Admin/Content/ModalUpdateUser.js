@@ -108,10 +108,7 @@ const ModalUpdateUser = (props) => {
                                     Check me out
                                 </label>
                             </div>
-                        </div>
-                        {/* <div className="col-12">
-                            <button type="submit" defaultValue="btn btn-primary">Sign in</button>
-                        </div> */}
+                        </div>                
                     </form>
                 </Modal.Body>
                 <Modal.Footer>

@@ -27,7 +27,6 @@ const TableUserPagination = (props) => {
                 </thead>
                 <tbody>
                     {listUser && listUser.length > 0 && listUser.map((item, index) => {
-                        // if(item.role !== '') {
                         return (
                             <tr key={`table-user-${index}`}>
                                 <td>{item.id}</td>
@@ -41,7 +40,6 @@ const TableUserPagination = (props) => {
                                 </td>
                             </tr>
                         )
-                        // }
                     })}
                     {listUser && listUser.length === 0 && <tr>
                         <td colSpan={'4'}>Not found data</td>

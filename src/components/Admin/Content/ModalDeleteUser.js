@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import {DeleteApi} from '../../../services/ApiServices'
@@ -16,7 +15,6 @@ const ModalDeleteUser = (props) => {
     if (data && data.EC === 0) {
         toast.success(data.EM);
         handleClose();
-        // await props.fetchListUser();
         props.setCurrentPage(1);
         await props.fetchListUserWithPagination(1);
     }

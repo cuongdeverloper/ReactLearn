@@ -1,6 +1,5 @@
 import ModalManageUser from "./ModalManageUser";
 import './ManageUser.scss';
-import TableUsers from "./TableUser";
 import { useEffect, useState } from "react";
 import { GetApi } from "../../../services/ApiServices";
 import ModalUpdateUser from "./ModalUpdateUser";
@@ -8,6 +7,7 @@ import ModalPreviewUser from "./ModalPreviewUser";
 import ModalDeleteUser from "./ModalDeleteUser";
 import TableUserPagination from "./TableUserPagination";
 import { GetUserPaginate } from "../../../services/ApiServices";
+import Header from "../../../Header/Header";
 const ManageUser = () => {
 
     const [showHideModalManageUser, setShowHideModalManageUser] = useState(false);
@@ -26,9 +26,6 @@ const ManageUser = () => {
 
     const handleButtonPreviewUser = (data) => {
         setShowPreviewUser(true);
-        setDataPreview(data)
-        // console.log(data)
-        // console.log(dataPreview)
     }
     const handleButtonUpdateUser = (data) => {
         setShowUpdateUser(true);
@@ -46,9 +43,7 @@ const ManageUser = () => {
         let res = await GetApi();
         if (res.EC === 0) {
             setListUser(res.DT)
-            //   console.log(res.DT)
         }
-        // console.log(listUser)
     }
 
     const limitUser = 5;
@@ -57,7 +52,6 @@ const ManageUser = () => {
         if (res.EC === 0) {   
             setListUser(res.DT.users)
             setPageCount(res.DT.totalPages)
-            // console.log("check res ",res.DT)
         }
     }
 
@@ -68,7 +62,7 @@ const ManageUser = () => {
     return (
         <div className='ManageUser-container'>
             <div className='Manageuser-header'>
-                ManagerUser
+                <Header/>
             </div>
 
             <div className='Manageuser-content'>
@@ -77,11 +71,6 @@ const ManageUser = () => {
                 </div>
 
                 <div className="div-btn-tableUsers">
-
-                    {/* <TableUsers listUser={listUser} 
-                    handleButtonUpdateUser={handleButtonUpdateUser} 
-                    handleButtonPreviewUser={handleButtonPreviewUser}
-                    handleButtonDeleteUser={handleButtonDeleteUser}/> */}
 
                     <TableUserPagination
                         listUser={listUser}
@@ -99,7 +88,6 @@ const ManageUser = () => {
             </div>
             <ModalManageUser show={showHideModalManageUser}
                 setShow={setShowHideModalManageUser}
-                // fetchListUser={fetchListUser} 
                 fetchListUserWithPagination={fetchListUserWithPagination}
                 currentPage={currentPage}
                 setCurrentPage={setCurrentPage}

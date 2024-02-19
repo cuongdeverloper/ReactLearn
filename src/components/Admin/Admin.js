@@ -4,18 +4,17 @@ import Header from "../../Header/Header"
 import { Outlet } from "react-router-dom"
 import 'react-toastify/dist/ReactToastify.css';
 const Admin = (props) => {
-   
-    return(
+
+    return (
         <div className="Admin-container">
             <div className="Admin-SideBar">
-                <SideBar/>
+                <SideBar />
             </div>
             <div className="Admin-content">
-                <Header/>
-                    <Outlet/>
+                <Outlet />
             </div>
-            
-      
+
+
         </div>
     )
 }
