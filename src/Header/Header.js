@@ -5,11 +5,16 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Outlet, NavLink } from "react-router-dom";
 import { useSelector } from 'react-redux';
-
+import { useDispatch } from 'react-redux';
+import { doLogout } from '../redux/action/userAction';
 const Header = (props) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const isAuthenticated = useSelector(state => state.user.isAuthenticated);
-  const account = useSelector(state => state.user.account)
+  const account = useSelector(state => state.user.account);
+  const logOut =() => {
+    dispatch(doLogout());
+  }
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
@@ -27,27 +32,14 @@ const Header = (props) => {
           </Nav>
           <Nav>
             {!isAuthenticated ?
-            <>
-            <button className='btn-header btn-login' onClick={() => (navigate("/login"))}>Log in</button>
-            <button className='btn-header btn-signup' onClick={()=> (navigate("/SignUp"))}>Sign up</button>
-            </> : <NavDropdown title="Setting" id="basic-nav-dropdown">          
-              <NavDropdown.Item>Log out</NavDropdown.Item>
-              <NavDropdown.Item>Profile</NavDropdown.Item>
-            </NavDropdown>}
-
-
-
-            {/* <NavDropdown title="Setting" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Log in</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3" className='disabled'>Log out</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
-                </NavDropdown.Item>
-              </NavDropdown> */}
+              <>
+                <button className='btn-header btn-login' onClick={() => (navigate("/login"))}>Log in</button>
+                <button className='btn-header btn-signup' onClick={() => (navigate("/SignUp"))}>Sign up</button>
+              </> :
+              <NavDropdown title="Setting" id="basic-nav-dropdown">
+                <NavDropdown.Item onClick={() => logOut()}>Log out</NavDropdown.Item>
+                <NavDropdown.Item>Profile</NavDropdown.Item>
+              </NavDropdown>}
           </Nav>
 
         </Navbar.Collapse>

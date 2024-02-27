@@ -1,13 +1,36 @@
 .Login-container {
     // background-image: url(../../../../../img/green-landscape-mountain-fog-trees-forest-house-autumn-7360x4912-2867.jpg);
     // background-size: cover;
-    background-color: rgb(200, 197, 197);
+    background-color: rgb(255, 255, 255);
     display: flex;
     align-items: center;
     flex-direction: column;
     width: 100%;
     height: 100vh;
     opacity: 0.9;
+}
+.loaderIcon {
+    margin-right: 7px;
+    top: 2px;
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    from {
+        transform: scale(1) rotate(0deg);
+    }
+    to {
+        transform: scale(1) rotate(360deg);
+    }
+}
+
+
+.Login-body{
+    .Login-body-buttonSignUp{
+        .btn-login{
+            color: black;
+        }
+    }
 }
 
 .Login-container .Login-header {
@@ -22,7 +45,7 @@
     justify-content: center;
 
     form {
-        background-color: rgb(242, 248, 248);
+        background-color: rgb(237, 237, 237);
         width: 80%;
         /* Điều chỉnh kích thước của form tương ứng với kích thước màn hình */
         max-width: 400px;
@@ -86,4 +109,29 @@
 .Login-body-forgotPassword a{
     text-decoration: none;
     color: rgb(46, 47, 47);
+}
+
+.Login-container {
+    position: relative;
+    /* Thêm thuộc tính position và z-index để kiểm soát vị trí và độ ưu tiên hiển thị */
+}
+
+.Login-container-parti {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    /* Sử dụng position: absolute và z-index để đặt particles ở phía trên cùng */
+}
+
+.Login-header {
+    position: relative;
+    z-index: 3;
+    /* Đặt z-index của header cao hơn để nó hiển thị phía trên particles */
+}
+
+.Login-body {
+    position: relative;
+    z-index: 2;
+    /* Đặt z-index của form trung bình để nó hiển thị giữa header và particles */
 }

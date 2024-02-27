@@ -31,10 +31,11 @@ const GetApi = ()=>{
     return axios.get('api/v1/participant/all');
 }
 const LoginApi = (userEmail, userPassword) => {
-    return axios.post(`api/v1/login`,{email : userEmail, password : userPassword})
+    return axios.post(`api/v1/login`,{email : userEmail, password : userPassword, delay : 3000})
 }
 const RegisterApi = (username, email, password) => {
     return axios.post(`api/v1/register`, {username:username, email: email, password:password})
 }
+
 // ` ` if urlencode,   ' ' if formdata in postman 
 export{AppendApi, GetApi, UpdateApi, DeleteApi, GetUserPaginate,LoginApi, RegisterApi}
