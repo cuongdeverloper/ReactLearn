@@ -1,7 +1,4 @@
-.Login-container {
-    // background-image: url(../../../../../img/green-landscape-mountain-fog-trees-forest-house-autumn-7360x4912-2867.jpg);
-    // background-size: cover;
-    background-color: rgb(255, 255, 255);
+.Login-container { 
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -45,7 +42,7 @@
     justify-content: center;
 
     form {
-        background-color: rgb(237, 237, 237);
+        background-color: rgba(255, 255, 255, 0.1);
         width: 80%;
         /* Điều chỉnh kích thước của form tương ứng với kích thước màn hình */
         max-width: 400px;
@@ -62,8 +59,8 @@
 
 .Login-header-donthaveyet {
     
-    a {
-        color: rgb(46, 47, 47);
+    label {
+        color: rgba(252, 252, 252,0.9);
         text-decoration: none;
         
     }
@@ -86,7 +83,14 @@
 
 .Login-body-social .icon-social {
 
-    color: azure;
+    color: rgb(255, 240, 243);
+}
+.Login-body {
+    form {
+        .form-title {
+            color: rgba(252, 252, 252,0.9);
+        }
+    }
 }
 .input-field{
     background-color: rgb(232, 227, 227);
@@ -108,7 +112,7 @@
 
 .Login-body-forgotPassword a{
     text-decoration: none;
-    color: rgb(46, 47, 47);
+    color: rgba(252, 252, 252,0.9);
 }
 
 .Login-container {
@@ -118,8 +122,7 @@
 
 .Login-container-parti {
     position: absolute;
-    top: 0;
-    left: 0;
+    
     z-index: 1;
     /* Sử dụng position: absolute và z-index để đặt particles ở phía trên cùng */
 }

@@ -1,0 +1,88 @@
+/* CSS cho màn hình lớn */
+.HomePage-container {
+    position: relative;
+    width: 100%;
+}
+
+.videoHomePage {
+    width: 100%;
+    height: auto;
+}
+
+.HomePage-content {
+    max-width: 30%;
+    position: absolute;
+    top: 45%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: rgb(162, 181, 202);
+}
+
+.HomePage-titlecontent {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.HomePage-textcontent {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.HomePage-start button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #61dafb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.HomePage-start button:hover {
+    background-color: #47a7f5;
+}
+
+/* Media query cho màn hình có chiều rộng nhỏ hơn 768px */
+@media (max-width: 768px) {
+    .HomePage-content {
+        max-width: 80%; /* Giảm độ rộng của nội dung */
+        left: 50%; /* Di chuyển nội dung về giữa */
+        transform: translateX(-50%);
+    }
+
+    .HomePage-titlecontent {
+        font-size: 2em; /* Giảm kích thước font cho tiêu đề */
+    }
+
+    .HomePage-textcontent {
+        font-size: 1em; /* Giảm kích thước font cho nội dung */
+        margin-bottom: 20px; /* Giảm khoảng cách giữa các đoạn văn */
+    }
+
+    .HomePage-start button {
+        font-size: 1em; /* Giảm kích thước font cho nút */
+        padding: 8px 16px; /* Giảm độ dày của nút */
+    }
+}
+
+/* Media query cho màn hình có chiều rộng nhỏ hơn 480px */
+@media (max-width: 480px) {
+    .HomePage-content {
+        max-width: 90%; /* Giảm độ rộng của nội dung */
+    }
+
+    .HomePage-titlecontent {
+        font-size: 1.8em; /* Giảm kích thước font cho tiêu đề */
+    }
+
+    .HomePage-textcontent {
+        font-size: 0.9em; /* Giảm kích thước font cho nội dung */
+    }
+
+    .HomePage-start button {
+        font-size: 0.9em; /* Giảm kích thước font cho nút */
+        padding: 6px 12px; /* Giảm độ dày của nút */
+    }
+}

@@ -7,7 +7,7 @@ import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa";
 import { doLogin } from '../../../../redux/action/userAction';
 import "./Login.scss";
 import { ImSpinner9 } from "react-icons/im";
-import Particles1 from './Particles1';
+import Particles1 from '../../../ParticlesBG/Particles1';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -30,7 +30,7 @@ const Login = () => {
         }
         if (data && +data.EC !== 0) {
             toast.error(data.EM);
-            // setIsLoadingLogin(false)
+            setIsLoadingLogin(false)
         }
     }
 
@@ -69,7 +69,7 @@ const Login = () => {
             
             <div className="Login-body">
                 <form>
-                    <h1>React JS</h1>
+                    <h1 className='form-title'>React JS</h1>
                     <div className="Login-body-social mb-3">
                         <div className="div-icon-social btn btn-primary "><a href="#" className="icon-social"><i ><FaFacebookF /></i></a></div>
                         <div className="div-icon-social btn btn-secondary"><a href="#" className="icon-social"><i ><FaInstagram /></i></a></div>

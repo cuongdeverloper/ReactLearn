@@ -1,14 +1,18 @@
 import videoHomePage from '../../assests/video-homepage.mp4'
+import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import './HomePage.scss'
 const HomePage = (props) => {
     const isAuthenticated = useSelector(state => state.user.isAuthenticated);
-    const account = useSelector(state => state.user.account)
-
+    const navigate = useNavigate();
+    const handleHomePageStart = () => {
+        navigate('/login')
+    }
     return (
         <div className="HomePage-container">
-                <video autoPlay muted loop className='videoHomePage' >
-                    <source src={videoHomePage} type="video/mp4" />
-                </video>
+            <video autoPlay muted loop className='videoHomePage' >
+                <source src={videoHomePage} type="video/mp4" />
+            </video>
             <div className='HomePage-content '>
                 <div className='HomePage-titlecontent '>
                     React
@@ -18,7 +22,8 @@ const HomePage = (props) => {
                     React lets you build user interfaces out of individual pieces called components. Create your own React components like Thumbnail, LikeButton, and Video. Then combine them into entire screens, pages, and apps.
                 </div>
                 <div className='HomePage-start'>
-                    <button className='HomePage-start'>Get start</button>
+                    {!isAuthenticated ? <button className='HomePage-start' onClick={() => handleHomePageStart()}>Get start</button> : <button className='HomePage-start'>Enjoing</button>}
+                    
                 </div>
             </div>
         </div>

@@ -11,7 +11,7 @@ body {
   .header-container {
     .navbar {
       z-index: 3;
-      background-color: rgba(0,0,0,0) !important;
+      background-color: rgba(255, 255, 255, 0.9) !important;
       .nav-link {
         &.active {
           text-decoration: underline;
@@ -41,49 +41,7 @@ body {
     background-color: rgb(27, 27, 27);
   }
 }
-.HomePage-container {
-  position: relative;
-  width: 100%;
-}
 
-.videoHomePage {
-  width: 100%;
-  height: auto;
-}
-
-.HomePage-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: rgb(162, 181, 202);
-}
-
-.HomePage-titlecontent {
-  font-size: 2.5em;
-  margin-bottom: 20px;
-}
-
-.HomePage-textcontent {
-  font-size: 1.2em;
-  margin-bottom: 30px;
-}
-
-.HomePage-start button {
-  padding: 10px 20px;
-  font-size: 1.2em;
-  background-color: #61dafb;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.HomePage-start button:hover {
-  background-color: #47a7f5;
-}
 
 
 body {

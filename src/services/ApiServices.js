@@ -36,6 +36,8 @@ const LoginApi = (userEmail, userPassword) => {
 const RegisterApi = (username, email, password) => {
     return axios.post(`api/v1/register`, {username:username, email: email, password:password})
 }
-
+const GetQuizzApi = () => {
+    return axios.get('api/v1/quiz-by-participant');
+}
 // ` ` if urlencode,   ' ' if formdata in postman 
-export{AppendApi, GetApi, UpdateApi, DeleteApi, GetUserPaginate,LoginApi, RegisterApi}
+export{AppendApi, GetApi, UpdateApi, DeleteApi, GetUserPaginate,LoginApi, RegisterApi, GetQuizzApi}
