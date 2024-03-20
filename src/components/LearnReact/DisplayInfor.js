@@ -2,7 +2,7 @@ import { type } from "@testing-library/user-event/dist/type";
 import React, { useEffect, useState } from "react";
 import './DisplayInfor.scss';
 import logoReact from '../../logo.svg';
-
+import nProgress from "nprogress";
 const DisplayInfor = (props) => {
     const { users } = props;
 
@@ -11,6 +11,7 @@ const DisplayInfor = (props) => {
 
     });
 
+    
     const handleShowHide = () => {
         setShowHideListUser(!isShowHideListUser);
     }
@@ -47,16 +48,21 @@ const DisplayInfor = (props) => {
                 <button onClick={() => handleShowHide()} >
                     {isShowHideListUser ? "Hide users" : "Show users"}
                 </button>
+               
             </>
             {
                 isShowHideListUser &&
                 (<>
                     {users.map((data) => {
                         return (
+                         <div>  
                             <div key={data.id} className={Number(data.age) > 20 ? "fontBig" : "fontSmall"} >
                                 My name is {data.name} and I'am {data.age}
                                 <button onClick={() => props.removeUser(data.id)}>X</button>
+                                
                             </div>
+                            
+                         </div>   
                         );
                     })}
                 </>)

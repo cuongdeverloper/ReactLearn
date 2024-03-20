@@ -20,7 +20,7 @@ const SignUp = () => {
         }
     }
     const checkSame = () => {
-        if(password !== repeatPassword) {
+        if (password !== repeatPassword) {
             setErrorRepeat(false)
         } else {
             setErrorRepeat(true)
@@ -32,15 +32,15 @@ const SignUp = () => {
 
     useEffect(() => {
         checkSame();
-    }, [password,repeatPassword]);
+    }, [password, repeatPassword]);
 
     const handleOnSubmit = async () => {
-        
+
         let data = await RegisterApi(username, email, password);
         if (data && +data.EC === 0) {
             toast.success(data.EM);
             navigate('/')
-            
+
         }
         if (data && +data.EC !== 0) {
             toast.error(data.EM);
@@ -58,20 +58,20 @@ const SignUp = () => {
                                 <div className="card-body">
                                     <h2 className="text-uppercase text-center mb-5">Create an account</h2>
                                     <form>
-                                        <div className="form-outline mb-4">
-                                            <input type="text" id="form3Example1cg" className="form-control form-control-lg" value={username} onChange={(event) => setUserName(event.target.value)} />
-                                            <label className="form-label" htmlFor="form3Example1cg">User Name</label>
+                                        <div className="form-floating mb-3">
+                                            <input type="text" id="floatingInput" className="form-control" value={username} onChange={(event) => setUserName(event.target.value)} placeholder='User Name'/>
+                                            <label htmlFor="floatingInput">User Name</label>
                                         </div>
-                                        <div className="form-outline mb-4">
-                                            <input type="email" id="form3Example3cg" className="form-control form-control-lg" value={email} onChange={(event) => setEmail(event.target.value)} />
+                                        <div className="form-floating mb-3">
+                                            <input type="email" id="form3Example3cg" className="form-control form-control-lg" value={email} onChange={(event) => setEmail(event.target.value)} placeholder='Email'/>
                                             <label className="form-label" htmlFor="form3Example3cg">Your Email</label>
                                         </div>
-                                        <div className="form-outline mb-4">
-                                            <input type="password" id="form3Example4cg" className="form-control form-control-lg" value={password} onChange={(event) => setPassword(event.target.value)} />
+                                        <div className="form-floating mb-3">
+                                            <input type="password" id="form3Example4cg" className="form-control form-control-lg" value={password} onChange={(event) => setPassword(event.target.value)} placeholder='Password'/>
                                             <label className="form-label" htmlFor="form3Example4cg">Password</label>
                                         </div>
-                                        <div className="form-outline mb-4">
-                                            <input type="password" id="form3Example4cdg" className={`form-control form-control-lg  ${errorRepeat ? '' : 'error-sth'}`} onChange={(event) => setRepeatPassword(event.target.value)}/>
+                                        <div className="form-floating mb-3">
+                                            <input type="password" id="form3Example4cdg" className={`form-control form-control-lg  ${errorRepeat ? '' : 'error-sth'}`} onChange={(event) => setRepeatPassword(event.target.value)} placeholder='Repeat PassWord'/>
                                             <label className="form-label" htmlFor="form3Example4cdg">Repeat your password</label>
                                         </div>
                                         <div className="form-check d-flex justify-content-center mb-5">

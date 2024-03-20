@@ -8,6 +8,9 @@ const HomePage = (props) => {
     const handleHomePageStart = () => {
         navigate('/login')
     }
+    const enjoying = () => {
+        navigate('/us')
+    }
     return (
         <div className="HomePage-container">
             <video autoPlay muted loop className='videoHomePage' >
@@ -22,7 +25,7 @@ const HomePage = (props) => {
                     React lets you build user interfaces out of individual pieces called components. Create your own React components like Thumbnail, LikeButton, and Video. Then combine them into entire screens, pages, and apps.
                 </div>
                 <div className='HomePage-start'>
-                    {!isAuthenticated ? <button className='HomePage-start' onClick={() => handleHomePageStart()}>Get start</button> : <button className='HomePage-start'>Enjoing</button>}
+                    {!isAuthenticated ? <button className='HomePage-start' onClick={() => handleHomePageStart()}>Get start</button> : <button className='HomePage-start' onClick={()=> enjoying()}>Enjoing</button>}
                     
                 </div>
             </div>

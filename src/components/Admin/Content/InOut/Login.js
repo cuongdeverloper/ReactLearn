@@ -93,7 +93,7 @@ const Login = () => {
                     <div className="Login-body-buttonSignUp">
                         <button type='button' className='btn-login btn btn-secondary ' onClick={handleSubmit} disabled={!exist}>
                             {isLoadingLogin === true && <ImSpinner9 className="loaderIcon" />}
-                            Sign Up
+                            LOGIN
                         </button>
                     </div>
                     <div className="Login-body-forgotPassword">

@@ -3,7 +3,10 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { GetQuizzApi } from '../../services/ApiServices';
 import { useSelector } from 'react-redux';
+import Particles2 from '../ParticlesBG/Particles2';
+import { useNavigate } from 'react-router-dom';
 const ListQuizz = () => {
+    const navigate = useNavigate();
     const [arrayQuizz, setArrayQuizz] = useState([]);
     const isAuthenticated = useSelector(state => state.user.isAuthenticated);
     useEffect(()=> {
@@ -21,10 +24,10 @@ const ListQuizz = () => {
             }
         }
     };
-
+    // console.log(arrayQuizz)
     return (
         <div className='ListQuizz-container'>
-            
+            <Particles2 />
                 <div className='ListQuizz-Content'>
                         <div className='ListQuizz-Content-Title'>
                                 <h3>
@@ -34,6 +37,7 @@ const ListQuizz = () => {
                         <div className='ListQUizz-Content-Body'>
                         {isAuthenticated && arrayQuizz && arrayQuizz.length >0 && arrayQuizz.map((quizz,index) => {
                     return(
+                        
                         <Card className='card-list' key={`${index}-quizz`} style={{ width: '18rem' }}>
                 <Card.Img variant="top" src={`data:image/jpeg;base64,${quizz.image}`} />
                 <Card.Body>
@@ -41,7 +45,8 @@ const ListQuizz = () => {
                     <Card.Text>
                         {quizz.description}
                     </Card.Text>
-                    <Button variant="primary">Start now</Button>
+                    <Button variant="primary" onClick={() => {navigate(`/quizz/${quizz.id}`, {state :{quizzTitle: quizz.description, imgTitle : `${quizz.image}`}})}}>Start now</Button>
+                                                            {/* Navigate (path , state )  How do you pass data when using the navigate function in react router v6 */}
                 </Card.Body>
             </Card>
                     )

@@ -1,24 +1,37 @@
 .User-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     // align-items: center;
-    height: 100%;
-    width: 100vw;
-}
+    min-height: 100vh !important;
+    width: 100vw !important;
 
-.User-content {
-    z-index: 2;
+}
+.User-goback{
+    color:#fff;
     position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+    
     
 }
+.User-content {
+    z-index: 2;
+    margin-left: 3em;
+    margin-right: 3em;
+}
 
-.ListQuizz-Content-Title{
-   
-    h3{
+.ListQuizz-Content-Title {
+    height: 3em;
+    width: 2em;
+
+    h3 {
         position: absolute;
-        top: 0;
-        left: 1rem;
+
+        top: 1rem;
         z-index: 2;
+        font-weight: 500;
+        color: aliceblue;
     }
 }
 
@@ -30,7 +43,14 @@
     gap: 3em;
     margin-top: 3rem;
 }
-
+.User-sidebar {
+    display: flex;
+    top: 0;
+    bottom: 0;
+    flex: 0 0 auto; /* Dùng không gian cần thiết */
+    overflow-y: auto; /* Hiển thị thanh cuộn khi cần */
+    min-height: 100vh; /* Giới hạn chiều cao tối đa là 100% của màn hình */
+}
 // .card-list {
 //     flex: 1 0 calc(33.333% - 3em); /* Hiển thị 3 card-list trên mỗi hàng trên máy tính */
 // }
@@ -38,8 +58,14 @@
 /* Responsive iPad */
 @media screen and (max-width: 1024px) {
     .card-list {
-        flex: 1 0 calc(50% - 3em);
+        // flex: 1 0  calc(50% - 3em);
+        flex: 1 0 1 calc(50% - 3em);
         /* Hiển thị 2 card-list trên mỗi hàng trên iPad */
+    }
+
+    
+    .User-sidebar{
+        display: none;
     }
 
 }
@@ -50,4 +76,8 @@
         flex: 1 0 calc(100% - 3em);
         /* Hiển thị 1 card trên mỗi hàng trên điện thoại */
     }
+    .User-sidebar{
+        visibility: hidden;
+    }
+    
 }

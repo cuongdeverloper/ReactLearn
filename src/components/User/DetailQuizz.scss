@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    
+}
+
+.DetailQuizz-container {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background-color: #2e3856;
+}
+
+.DQ-title {
+    border: 1px solid red;
+    height: 5em;
+    width: 100vw;
+}
+
+.DQ-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: 1px solid green;
+    max-width: 100%;
+    margin: 1em 3em;
+    .DQ-content-container {
+        margin: 0;
+        width: 100%;
+        height: auto;
+
+    }
+}
+
+.DQ-content-left{
+    width: 250px;
+    height: auto;
+    
+    
+}
+
+.DQ-footer {
+    border: 1px solid yellow;
+}
+
+.DQ-content-mid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .DQ-content-mid-title {     
+        height: auto;
+        width: 100%;
+    }
+}
+.DQ-content-question{
+    height: 100%;
+    width: 100%;
+}
+.btn-NextPreQuestion{
+    margin-top: 20px;
+    .q-child-nextpreButton{
+        margin: 0 10px;
+        width: 60px;
+    }
+}
+.DQ-content-left-title, .DQ-content-right-title{
+    height: 100%;
+}
+
+// .content-media-left img{
+
+// }
+
+@media only screen and (max-width: 768px) {
+
+    // .DetailQuizz-container {
+    //     padding: 10px;
+    // }
+    .DQ-content {
+        .DQ-content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .DQ-content-mid {
+                width: 100%;
+            }
+        }
+    }
+    
+    
+
+}
+
+/* Responsive styles for tablets like iPads */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+
+    // .DetailQuizz-container {
+    //     padding: 20px;
+    // }
+    .DQ-content {
+        .DQ-content-container {
+            .DQ-content-left {
+                .DQ-content-left-title {
+                    
+                    flex-grow: 1;
+                    /* Chiếm toàn bộ không gian còn lại */
+                    width: 100%;
+                    /* Không vượt quá kích thước tối đa của màn hình */
+                }
+            }
+
+
+        }
+    }
+
+}

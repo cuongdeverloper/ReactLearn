@@ -39,5 +39,10 @@ const RegisterApi = (username, email, password) => {
 const GetQuizzApi = () => {
     return axios.get('api/v1/quiz-by-participant');
 }
-// ` ` if urlencode,   ' ' if formdata in postman 
-export{AppendApi, GetApi, UpdateApi, DeleteApi, GetUserPaginate,LoginApi, RegisterApi, GetQuizzApi}
+const GetDataQuizzApi = (id) => {
+    return axios.get(`api/v1/questions-by-quiz?quizId=${id}`)
+}
+const PostSubmitQuizzApi = (data) => {
+    return axios.post('api/v1/quiz-submit',{ ...data });  //raw 
+}
+export{AppendApi, GetApi, UpdateApi, DeleteApi, GetUserPaginate,LoginApi, RegisterApi, GetQuizzApi,GetDataQuizzApi,PostSubmitQuizzApi}
