@@ -1,25 +1,28 @@
-
 .Admin-container {
     display: flex;
-    height: 100vh !important;
-    .Admin-content {
-        max-height: 100%;
-        width: 100%;
-        .ManageUser-container{
-            height: 100%;
-            .Manageuser-content{
-                max-height: 100%;
-            }
-        }
-    }
+    height: 100vh; /* Set container height to full viewport height */
+    
 }
-.TableUserPagination-paginate{
+
+.Admin-content {
+    flex: 1; /* Let content area fill the remaining space */
+    overflow-y: auto; /* Enable vertical scrolling if content overflows */
+    width: 100%; /* Ensure content area takes full width */
+}
+
+.ManageUser-container {
+    height: 100%; /* Make nested container full height */
+}
+
+.Manageuser-content {
+    max-height: 100%; /* Ensure content doesn't overflow */
+}
+
+.TableUserPagination-paginate {
     display: flex;
     justify-content: center;
 }
-// .Admin-content{
-//     width: 100%;
-// }
+
 .reactIconFa {
     display: flex;
     justify-content: center;
@@ -39,3 +42,12 @@
     }
 }
 
+.Admin-SideBar {
+    .pro-sidebar {
+        .pro-sidebar-inner {
+            .pro-sidebar-layout {
+                background-color: rgba(100, 101, 119, 0.2);
+            }
+        }
+    }
+}

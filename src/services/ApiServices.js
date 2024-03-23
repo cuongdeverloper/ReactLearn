@@ -1,40 +1,40 @@
 // import axios from 'axios';
 import axios from '../utils/AxiosCustomize';
-const AppendApi = (email, password,username,role,img) => {
+const AppendApi = (email, password, username, role, img) => {
     const FormData = require('form-data');
-        const form = new FormData();
-        form.append('email', email);
-        form.append('password', password);
-        form.append('username', username);
-        form.append('role', role);
-        form.append('userImage', img);
-        return axios.post('api/v1/participant', form);
-        
+    const form = new FormData();
+    form.append('email', email);
+    form.append('password', password);
+    form.append('username', username);
+    form.append('role', role);
+    form.append('userImage', img);
+    return axios.post('api/v1/participant', form);
+
 }
-const UpdateApi = (id,username,role,img) => {
+const UpdateApi = (id, username, role, img) => {
     const FormData = require('form-data');
-        const form = new FormData();
-        form.append('id', id);
-        form.append('username', username);
-        form.append('role', role);
-        form.append('userImage', img);
-        return axios.put('api/v1/participant', form);     
+    const form = new FormData();
+    form.append('id', id);
+    form.append('username', username);
+    form.append('role', role);
+    form.append('userImage', img);
+    return axios.put('api/v1/participant', form);
 }
 const DeleteApi = (userId) => {
-    return axios.delete('api/v1/participant', { data: {id: userId}});
+    return axios.delete('api/v1/participant', { data: { id: userId } });
 }
-const GetUserPaginate = (page,limit) => {
+const GetUserPaginate = (page, limit) => {
     return axios.get(`api/v1/participant?page=${page}&limit=${limit}`);
 }
 
-const GetApi = ()=>{
+const GetApi = () => {
     return axios.get('api/v1/participant/all');
 }
 const LoginApi = (userEmail, userPassword) => {
-    return axios.post(`api/v1/login`,{email : userEmail, password : userPassword, delay : 3000})
+    return axios.post(`api/v1/login`, { email: userEmail, password: userPassword, delay: 3000 })
 }
 const RegisterApi = (username, email, password) => {
-    return axios.post(`api/v1/register`, {username:username, email: email, password:password})
+    return axios.post(`api/v1/register`, { username: username, email: email, password: password })
 }
 const GetQuizzApi = () => {
     return axios.get('api/v1/quiz-by-participant');
@@ -43,6 +43,31 @@ const GetDataQuizzApi = (id) => {
     return axios.get(`api/v1/questions-by-quiz?quizId=${id}`)
 }
 const PostSubmitQuizzApi = (data) => {
-    return axios.post('api/v1/quiz-submit',{ ...data });  //raw 
+    return axios.post('api/v1/quiz-submit', { ...data });  //raw 
 }
-export{AppendApi, GetApi, UpdateApi, DeleteApi, GetUserPaginate,LoginApi, RegisterApi, GetQuizzApi,GetDataQuizzApi,PostSubmitQuizzApi}
+const PostQuestionApi = (description, name, difficulty, quizImage) => {
+    const FormData = require('form-data');
+    const form = new FormData();
+    form.append('description', description);
+    form.append('name', name);
+    form.append('difficulty', difficulty);
+    form.append('quizImage', quizImage);
+    return axios.post('api/v1/quiz', form);
+}
+const GetAllQuestionApi = () => {
+    return axios.get('api/v1/quiz/all')
+}
+const DeleteQuestionApi = (QuesId) => {
+    return axios.delete(`api/v1/quiz/${QuesId}`);
+}
+const UpdateQuestionApi = (id,description, name, difficulty, quizImage) => {
+    const FormData = require('form-data');
+    const form = new FormData();
+    form.append('id', id);
+    form.append('description', description);
+    form.append('name', name);
+    form.append('difficulty', difficulty);
+    form.append('quizImage', quizImage);
+    return axios.put('api/v1/quiz', form);
+}
+export { AppendApi, GetApi, UpdateApi, DeleteApi, GetUserPaginate, LoginApi, RegisterApi, GetQuizzApi, GetDataQuizzApi, PostSubmitQuizzApi, PostQuestionApi, GetAllQuestionApi, DeleteQuestionApi, UpdateQuestionApi }

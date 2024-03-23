@@ -7,7 +7,6 @@ import HomePage from './components/Home/HomePage';
 import ManageUser from "./components/Admin/Content/ManageUser/ManageUser";
 import DashBoard from './components/Admin/Content/DashBoard';
 import ManageQuizz from './components/Admin/ManageQuizz/ManageQuizz';
-import ManageQuestion from './components/Admin/Content/ManageQuestion';
 import Login from './components/Admin/Content/InOut/Login';
 import { ToastContainer, toast } from 'react-toastify';
 import SignUp from "./components/Admin/Content/InOut/SignUp";
@@ -53,7 +52,7 @@ const Layout = () => {
                         <Route index element={<DashBoard />} />
                         <Route path="manage-user" element={<ManageUser />} />
                         <Route path="manage-quizz" element={<ManageQuizz />} />
-                        <Route path="manage-question" element={<ManageQuestion />} />
+                        
                     </Route>
 
                     <Route path="/us" element={<User />} >

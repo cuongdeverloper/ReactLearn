@@ -32,9 +32,10 @@ const SideBar = (props) => {
     return (
         <>
             <ProSidebar
-                image={sidebarBg}
+                // image={sidebarBg}
                 collapsed={collapsed}
                 toggled={toggled}
+                
                 // handleToggleSidebar={handleToggleSidebar}
                 // handleCollapsedChange={handleCollapsedChange}
             >
