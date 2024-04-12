@@ -10,11 +10,10 @@ import ManageQuizz from './components/Admin/ManageQuizz/ManageQuizz';
 import Login from './components/Admin/Content/InOut/Login';
 import { ToastContainer, toast } from 'react-toastify';
 import SignUp from "./components/Admin/Content/InOut/SignUp";
-import HomePageUser from "./components/User/Content/HomePageUser";
-import FreeGame from "./components/User/Content/FreeGame";
 import ListQuizz from "./components/User/ListQuizz";
 import DetailQuizz from "./components/User/DetailQuizz";
 import FaceR from "./components/Face/FaceR";
+import ManageQuestion from "./components/Admin/ManageQuestion/ManageQuestion";
 
 const NotFound = () => {
     return (
@@ -52,13 +51,11 @@ const Layout = () => {
                         <Route index element={<DashBoard />} />
                         <Route path="manage-user" element={<ManageUser />} />
                         <Route path="manage-quizz" element={<ManageQuizz />} />
-                        
+                        <Route path="manage-question" element={<ManageQuestion />} />
                     </Route>
 
                     <Route path="/us" element={<User />} >
                         <Route index element={<ListQuizz />} />
-                        <Route path="homapageuser" element={<HomePageUser />} />
-                        <Route path="playgame" element={<FreeGame />} />
                     </Route>
 
                     <Route path="/quizz/:idcode" element={<DetailQuizz />} />

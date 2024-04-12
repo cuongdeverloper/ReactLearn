@@ -5,18 +5,16 @@ import _ from 'lodash'
 import Header from "../../Header/Header";
 import './DetailQuizz.scss'
 import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Unstable_Grid2';
-import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
-import ListQuizz from "./ListQuizz";
 import Question from "./Question";
 import { PostSubmitQuizzApi } from "../../services/ApiServices";
 import ModalResultQuizz from "./ModalResultQuizz";
+import RightContent from "./RightContentQuiz/RightContent";
+import CountDownTimer from './RightContentQuiz/CountDownTimer'
 
 const DetailQuizz = () => {
     const params = useParams();
@@ -70,56 +68,59 @@ const DetailQuizz = () => {
 
     }
 
-    const handleSubmit = async() =>{
+    const handleSubmit = async () => {
         let payload = {
-            quizId : +quizzId,
-            answers :[],
+            quizId: +quizzId,
+            answers: [],
         };
         let answersArr = [];
-        if(dataQuizz && dataQuizz.length > 0) {
+        if (dataQuizz && dataQuizz.length > 0) {
             dataQuizz.forEach(q => {
                 let questionIdArr = q.QuestionId;
                 let userAnswerIdArr = [];
                 q.answerQus.forEach(a => {
-                    if(a.isSelected) {
+                    if (a.isSelected) {
                         userAnswerIdArr.push(a.id)
                     }
                 });
-                
+
                 answersArr.push({
-                    questionId: +questionIdArr, 
+                    questionId: +questionIdArr,
                     //will error if datatype not correct
-                    userAnswerId : userAnswerIdArr,
+                    userAnswerId: userAnswerIdArr,
                 });
             })
-           
+
         }
         payload.answers = answersArr;
         let response = await PostSubmitQuizzApi(payload);
         console.log(response)
-        if(response && response.EC === 0) {
+        if (response && response.EC === 0) {
             setDataResultQuizz({
-                countCorrect : response.DT.countCorrect,
-                countTotal : response.DT.countTotal,
+                countCorrect: response.DT.countCorrect,
+                countTotal: response.DT.countTotal,
                 quizData: response.DT.quizData
             })
             setShowModalResult(true)
+
         } else {
             alert('Smthing wrong !');
         }
-        
+
 
         //Reset all answer to default
         let dataQuizzClone = _.cloneDeep(dataQuizz)
-        dataQuizzClone.forEach(item => {
-            console.log(item)
+        dataQuizzClone.map(qs => {
+            // console.log(item)
+            qs.answerQus.map(as => {
+                as.isSelected = false
+            })
         })
+        setDataQuizz(dataQuizzClone)
     }
 
 
-    useEffect(() => {
-        fetchApiQuestions()
-    }, [quizzId])
+   
     const fetchApiQuestions = async () => {
         const data = await GetDataQuizzApi(quizzId);
         // console.log(data)
@@ -154,8 +155,10 @@ const DetailQuizz = () => {
         }
     }
     // console.log('check DT Quizz',dataQuizz[1])
-
-
+    useEffect(() => {
+        fetchApiQuestions()
+    }, [quizzId])
+// console.log(quizzId)
     const cardContentQuizz = () => (
         <div sx={{ maxWidth: 345 }} className="content-media-left">
 
@@ -176,13 +179,11 @@ const DetailQuizz = () => {
             </CardContent>
 
         </div>
-
     )
-
     return (
         <div className="DetailQuizz-container">
             <div className="DQ-title">
-                <Header/>
+                <Header />
             </div>
             <div className="DQ-content">
                 <Grid container spacing={3} className="DQ-content-container">
@@ -211,7 +212,13 @@ const DetailQuizz = () => {
                     </Grid>
                     <Grid xs className="DQ-content-right">
                         <Item className="DQ-content-right-title">
-                            <button className="btn btn-danger" onClick={()=> handleSubmit()}>Finish</button>
+                            <CountDownTimer
+                                handleSubmit={handleSubmit}
+                            />
+
+                            <RightContent
+                                dataQuizz={dataQuizz}
+                            />
                         </Item>
                     </Grid>
                 </Grid>
@@ -223,7 +230,7 @@ const DetailQuizz = () => {
             <ModalResultQuizz
                 show={showModalResult}
                 setShow={setShowModalResult}
-                dataResult = {dataResultQuizz}
+                dataResult={dataResultQuizz}
             />
         </div>
     );

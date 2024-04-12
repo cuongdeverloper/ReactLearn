@@ -9,6 +9,8 @@ import TableListQuizz from './TableListQuizz';
 import Accordion from 'react-bootstrap/Accordion';
 import ManageDeleteQuizz from './ManageDeleteQuizz';
 import ManageUpdateQuizz from './ManageUpdateQuizz';
+import UpdateQA from './UpdateQA';
+import AssignQuizzForUser from './AssignQuizzForUser';
 
 const ManageQuizz = () => {
     const [previewImg, setPreviewImg] = useState('');
@@ -109,6 +111,28 @@ const resetApi =() =>{
                 </Accordion>
             </div>
 
+            <div className="UpdateQ/A-title mb-3">
+                <Accordion >
+                    <Accordion.Item eventKey="0">
+                        <Accordion.Header>Update Q/A</Accordion.Header>
+                        <Accordion.Body>
+                            <UpdateQA/>
+                        </Accordion.Body>
+                    </Accordion.Item>
+                </Accordion>
+            </div>
+
+            <div className="AssignToUser-title mb-3">
+                <Accordion >
+                    <Accordion.Item eventKey="0">
+                        <Accordion.Header>Assign to user</Accordion.Header>
+                        <Accordion.Body>
+                            <AssignQuizzForUser/>
+                        </Accordion.Body>
+                    </Accordion.Item>
+                </Accordion>
+            </div>
+            
             <div className="MQ-body">
                 <TableListQuizz
                     handleButtonModalDeleteUser={handleButtonModalDeleteUser}

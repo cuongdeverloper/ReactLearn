@@ -1,0 +1,62 @@
+.ManageQuestion-container{
+    margin: 0 100px;
+}
+// fix bug form floating
+.form-floating {
+    position: relative;
+    max-width: 300px; /* not relevant */
+    margin: 20px 10px; /* not relevant */
+  }
+  
+  
+  
+.body-addquestion-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    .group-upload{
+        display: flex;
+        flex-direction: row;
+        max-width: 40%;
+    }
+}
+
+.divShowImg{
+    overflow:hidden ;
+    max-width: 100%;
+}
+
+.adddes-input{
+    width: 70%;
+}
+.icon-addques {
+    color: rgb(91, 175, 128);
+}
+.icon-minusques{
+    color: rgb(230, 92, 92);
+}
+.icon-addques, .icon-minusques {
+    font-size   : 24px;
+    cursor: pointer;
+}
+.body-addanswers-container{
+    display: flex;
+    flex-direction: column;
+}
+.body-addanswers{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    // justify-content: center;
+}
+.icon-upload-img-qus{
+    font-size: 24px;
+    color: rgb(187, 136, 235);
+}
+.icon-upload-img-qus  :hover {
+    color: rgb(172, 111, 229);
+}
+.spanShowImg {
+    max-width: 10px;
+}

@@ -24,3 +24,14 @@
     .error-sth {
         border-color: red;
     }
+    .card-body{
+        form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center ;
+            .form-floating{
+                min-width: 80%;
+            }
+        }
+    }
