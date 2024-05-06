@@ -35,7 +35,14 @@
     }
 }
 
+.no-quiz-here{
+    position: absolute;
 
+        
+        z-index: 2;
+        font-weight: 500;
+        color: aliceblue;
+}
 .ListQUizz-Content-Body {
     top: 2rem;
     display: flex;

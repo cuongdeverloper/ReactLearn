@@ -1,0 +1,33 @@
+{
+    "Homepage":{
+      "title1":"React The library for web and native user interfaces",
+      "title2":"React lets you build user interfaces out of individual pieces called components. Create your own React components like Thumbnail, LikeButton, and Video. Then combine them into entire screens, pages, and apps.",
+      "title3":{
+        "btnlogin":"Get start"
+      }
+    },
+    "DashBoard":{
+      "title1":"Total answers",
+      "title2":"Total questions",
+      "title3":"Total quiz",
+      "answers":"answers",
+      "questions": "questions",
+      "quiz":"quiz"
+    },
+    "SideBar":{
+      "ItemTitle1":"DashBoard",
+      "ItemTitle2":"Manage",
+      "ItemTitle3":"Manage User",
+      "ItemTitle4":"Manage Quiz",
+      "ItemTitle5":"Manage Question",
+      "ItemFooter":"View Source",
+      "ItemNew":"New"
+    },
+    "Header":{
+      "Setting":"Setting",
+      "Log out":"Log out",
+      "Profile":"Profile",
+      "Login": "Login",
+      "Sign up":"Sign up"
+    }
+  }

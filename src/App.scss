@@ -21,27 +21,6 @@ body {
   }
 }
 
-.btn-header{
-  padding: 0 10px 0 10px;
-  margin-right: 6px;
-  border-radius: 7%;
-  height: 40px;
-  width: 80px;
-}
-.btn-login{
-  background-color: white;
-  &:hover{
-    opacity: 0.7;
-  }
-}
-.btn-signup{
-  background-color: rgb(59, 59, 59) ;
-  color: white;
-  &:hover{
-    background-color: rgb(27, 27, 27);
-  }
-}
-
 
 
 body {

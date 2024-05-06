@@ -1,0 +1,32 @@
+{
+    "Homepage":{
+      "title1":"React Thư viện dành cho web và giao diện người dùng",
+      "title2":"React cho phép bạn xây dựng giao diện người dùng từ các phần riêng lẻ được gọi là các thành phần. Tạo các thành phần React của riêng bạn như Hình thu nhỏ, LikeButton và Video. Sau đó kết hợp chúng vào toàn bộ màn hình, trang và ứng dụng.",
+      "title3":{
+        "btnlogin":"Bắt đầu"
+      }
+    },
+    "DashBoard":{
+      "title1":"Tổng số câu trả lời",
+      "title2":"Tổng số bài thi",
+      "answers":"Câu trả lời",
+      "questions": "Câu hỏi",
+      "quiz":"Bài thi"
+    },
+    "SideBar":{
+      "ItemTitle1":"Thống kê",
+      "ItemTitle2":"Quản lí",
+      "ItemTitle3":"Quản lí người dùng",
+      "ItemTitle4":"Quản lí bài thi",
+      "ItemTitle5":"Quản lí câu hỏi",
+      "ItemFooter":"Xem nguồn",
+      "ItemNew":"Mới"
+    },
+    "Header":{
+      "Setting":"Cài đặt",
+      "Log out":"Đăng xuất",
+      "Profile":"Trang cá nhân",
+      "Login": "Đăng nhập",
+      "Sign up":"Đăng ký"
+    }
+  }

@@ -130,6 +130,8 @@
 
 .Login-header {
     position: relative;
+    display: flex;
+    justify-content: space-between;
     z-index: 3;
     /* Đặt z-index của header cao hơn để nó hiển thị phía trên particles */
 }

@@ -6,8 +6,8 @@
 
 .Admin-content {
     flex: 1; /* Let content area fill the remaining space */
-    overflow-y: auto; /* Enable vertical scrolling if content overflows */
-    width: 100%; /* Ensure content area takes full width */
+     /* Enable vertical scrolling if content overflows */
+    max-width: 100%; /* Ensure content area takes full width */
 }
 
 .ManageUser-container {

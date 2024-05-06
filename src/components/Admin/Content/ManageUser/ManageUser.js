@@ -7,9 +7,7 @@ import ModalPreviewUser from "./ModalPreviewUser";
 import ModalDeleteUser from "./ModalDeleteUser";
 import TableUserPagination from "./TableUserPagination";
 import { GetUserPaginate } from "../../../../services/ApiServices";
-import Header from "../../../../Header/Header";
 const ManageUser = () => {
-
     const [showHideModalManageUser, setShowHideModalManageUser] = useState(false);
     const [showUpdateUser, setShowUpdateUser] = useState(false);
     const [showPreviewUser, setShowPreviewUser] = useState(false);
@@ -59,16 +57,16 @@ const ManageUser = () => {
     const resetApi = () => {
         setDataUpdate({});
     }
-
+    
     return (
         <div className='ManageUser-container'>
+            
             <div className='Manageuser-content'>
                 <div className="div-btn-addNewUser">
                     <button className="btn btn-primary" onClick={() => funcSetSh()}>Add new user</button>
                 </div>
 
                 <div className="div-btn-tableUsers">
-
                     <TableUserPagination
                         listUser={listUser}
                         pageCount={pageCount}

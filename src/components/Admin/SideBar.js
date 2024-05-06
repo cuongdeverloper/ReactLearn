@@ -14,6 +14,7 @@ import { GoArrowRight, GoArrowLeft } from "react-icons/go";
 import sidebarBg from '../../assests/bg2.jpg';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 
 const SideBar = (props) => {
@@ -23,6 +24,7 @@ const SideBar = (props) => {
 
     const [toggled, setToggled] = useState(false);
     const [tfReactIcon, settfReactIcon] = useState(true);
+    const {t} =useTranslation();
 
     const handleCollapsedChange = () => {
         setCollapsed(!collapsed);
@@ -72,22 +74,22 @@ const SideBar = (props) => {
 
                 <SidebarContent>
                     <Menu iconShape='square'>
-                        <MenuItem icon={<FaTachometerAlt />} suffix={<span className="badge red" >New</span>}>
-                             <Link to='/adm' className='nav-link'>DashBoard</Link>
+                        <MenuItem icon={<FaTachometerAlt />} suffix={<span className="badge red" >{t('SideBar.ItemNew')}</span>}>
+                             <Link to='/adm' className='nav-link'>{t('SideBar.ItemTitle1')}</Link>
                         </MenuItem>
                         <MenuItem icon={<FaGem />}> React JS </MenuItem>
                     </Menu>
                     <Menu iconShape="circle">
 
-                        <SubMenu icon={<FaRegLaughWink />} suffix={<span className="badge yellow">3</span>} title={'Manage'}>
+                        <SubMenu icon={<FaRegLaughWink />} suffix={<span className="badge yellow">3</span>} title={t('SideBar.ItemTitle2')}>
                             <MenuItem>                            
-                                <Link to='manage-user' className='nav-link'>Manage User</Link>
+                                <Link to='manage-user' className='nav-link'>{t('SideBar.ItemTitle3')}</Link>
                             </MenuItem>
                             <MenuItem>
-                                <Link to='manage-quizz' className='nav-link'>Manage quizz</Link>
+                                <Link to='manage-quizz' className='nav-link'>{t('SideBar.ItemTitle4')}</Link>
                             </MenuItem>
                             <MenuItem>
-                                <Link to='manage-question' className='nav-link'>Manage question</Link>
+                                <Link to='manage-question' className='nav-link'>{t('SideBar.ItemTitle5')}</Link>
                             </MenuItem>
                         </SubMenu>
 
@@ -104,7 +106,7 @@ const SideBar = (props) => {
                                 rel="noopener noreferrer">
                                 <FaGithub />
                                 <span style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}>
-                                    ViewSource
+                                {t('SideBar.ItemFooter')}
                                 </span>
                             </a>
                         </MenuItem>

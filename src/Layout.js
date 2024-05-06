@@ -5,7 +5,7 @@ import User from './components/User/User';
 import MyComponent from './components/LearnReact/MyComponent';
 import HomePage from './components/Home/HomePage';
 import ManageUser from "./components/Admin/Content/ManageUser/ManageUser";
-import DashBoard from './components/Admin/Content/DashBoard';
+import DashBoard from "./components/Admin/Content/Dashboard/DashBoard";
 import ManageQuizz from './components/Admin/ManageQuizz/ManageQuizz';
 import Login from './components/Admin/Content/InOut/Login';
 import { ToastContainer, toast } from 'react-toastify';
@@ -14,7 +14,9 @@ import ListQuizz from "./components/User/ListQuizz";
 import DetailQuizz from "./components/User/DetailQuizz";
 import FaceR from "./components/Face/FaceR";
 import ManageQuestion from "./components/Admin/ManageQuestion/ManageQuestion";
-
+import PrivateRoute from "./Routes/PrivateRoute";
+import React, {Suspense} from "react";
+import Profile from "./components/Profile/Profile";
 const NotFound = () => {
     return (
         <div className="mt-3 alert alert-danger">
@@ -22,9 +24,10 @@ const NotFound = () => {
         </div>
     )
 }
+<Suspense fallback={<div>Loading...</div>}></Suspense>
 const Layout = () => {
     return (
-        <>
+        <Suspense fallback={<div>Loading...</div>}>
             <ToastContainer
                 position="top-right"
                 autoClose={5000}
@@ -55,7 +58,12 @@ const Layout = () => {
                     </Route>
 
                     <Route path="/us" element={<User />} >
-                        <Route index element={<ListQuizz />} />
+                        <Route index element={
+                            <PrivateRoute>
+                                <ListQuizz />
+                            </PrivateRoute>
+                        }
+                        />
                     </Route>
 
                     <Route path="/quizz/:idcode" element={<DetailQuizz />} />
@@ -63,12 +71,13 @@ const Layout = () => {
                     <Route path="/login" element={<Login />} />
                     <Route path="/SignUp" element={<SignUp />} />
 
+                    <Route path="/profile" element={<Profile/>} />
                     <Route path='*' element={<NotFound />} />
 
                 </Routes>
             </BrowserRouter>
 
-        </>
+            </Suspense>
     )
 }
 export default Layout

@@ -5,6 +5,8 @@ import { GetQuizzApi } from '../../services/ApiServices';
 import { useSelector } from 'react-redux';
 import Particles2 from '../ParticlesBG/Particles2';
 import { useNavigate } from 'react-router-dom';
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
+
 const ListQuizz = () => {
     const navigate = useNavigate();
     const [arrayQuizz, setArrayQuizz] = useState([]);
@@ -26,8 +28,15 @@ const ListQuizz = () => {
     };
     // console.log(arrayQuizz)
     return (
+        
         <div className='ListQuizz-container'>
+            {arrayQuizz && arrayQuizz.length===0&&
+                <h5 className='no-quiz-here'>
+                    There is no quiz here !
+                </h5>
+            }
             <Particles2 />
+            
                 <div className='ListQuizz-Content'>
                         <div className='ListQuizz-Content-Title'>
                                 <h3>

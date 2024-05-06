@@ -17,6 +17,12 @@
     }
 }
 .div-ques:hover{
-    background-color: rgb(232, 157, 157);
+    opacity: 0.6;
     cursor: pointer;
+}
+.isSelectedClass {
+    background-color: rgb(111, 107, 107);
+}
+.isSelectingClass {
+    color:rgb(233, 239, 245);
 }

@@ -8,6 +8,7 @@ import { doLogin } from '../../../../redux/action/userAction';
 import "./Login.scss";
 import { ImSpinner9 } from "react-icons/im";
 import Particles1 from '../../../ParticlesBG/Particles1';
+import Language from '../../../../Header/Language';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -21,7 +22,6 @@ const Login = () => {
     const handleSubmit = async () => {
         setIsLoadingLogin(true)
         let data = await LoginApi(email, password);
-        
         if (data && +data.EC === 0) {
             dispatch(doLogin(data))
             toast.success(data.EM);
@@ -65,6 +65,7 @@ const Login = () => {
             
             <div className="Login-header">
                 <span onClick={() => navigate('/')}> &#60;&#60; Go back home</span>
+                <Language/>
             </div>
             
             <div className="Login-body">

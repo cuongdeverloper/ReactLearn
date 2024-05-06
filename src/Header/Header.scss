@@ -1,0 +1,28 @@
+
+.languege-setting{
+    .dropdown-toggle::after {
+        display: none !important; 
+      }
+}
+.btn-header{
+  padding: 0 5px 0 5px;
+  margin-right: 6px;
+  border-radius: 7%;
+  height: 45px;
+  width: 90px;
+  font-size: 14px;
+}
+.btn-login{
+  background-color: white;
+  &:hover{
+    opacity: 0.7;
+  }
+}
+.btn-signup{
+  background-color: rgb(59, 59, 59) ;
+  color: white;
+  &:hover{
+    background-color: rgb(27, 27, 27);
+  }
+}
+

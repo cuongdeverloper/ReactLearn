@@ -7,7 +7,7 @@ const Question = (props) => {
     const { dataQ, indexQ } = props;
     const [isPreviewImg, setIsPreviewImg] = useState(false)
 
-    console.log('checkdtq', dataQ)
+    // console.log('checkdtq', dataQ)
 
     if (_.isEmpty(dataQ)) {
         return (

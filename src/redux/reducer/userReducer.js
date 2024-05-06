@@ -3,6 +3,7 @@ import { Fetch_User_LogOut } from "../action/userAction";
 const INITIAL_STATE = {
     account: {
         access_token: '',
+        email:'',
         refresh_token: '',
         username: '',
         image: '',
@@ -19,10 +20,12 @@ const userReducer = (state = INITIAL_STATE, action) => {
                 ...state, 
                 account: {
                     access_token: action?.payload.DT?.access_token,
+                    email:action?.payload?.DT?.email,
                     refresh_token: action?.payload.DT?.refresh_token,
                     username: action?.payload.DT?.username,
                     image: action?.payload?.DT.image,
                     role: action?.payload?.DT?.role,
+                    
                 },
                 isAuthenticated: true,
             };
@@ -31,10 +34,12 @@ const userReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 account: {
                     access_token: '',
+                    email:'',
                     refresh_token: '',
                     username: '',
                     image: '',
                     role: '',
+                    
                 },
                 isAuthenticated: false,
             };

@@ -9,8 +9,12 @@ import _, { findIndex } from 'lodash';
 import './ManageQuestion.scss'
 import Lightbox from "react-awesome-lightbox";
 import { toast } from 'react-toastify';
+import { useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 
 const ManageQuestion = () => {
+  const isAuthenticated = useSelector(state => state.user.isAuthenticated);
+ 
   const [isPreviewImg, setIsPreviewImg] = useState(false)
   const [selectedOption, setSelectedOption] = useState({})
   const [listQuizz, setListQuizz] = useState([]);
@@ -45,6 +49,8 @@ const ManageQuestion = () => {
         .then(res => res.arrayBuffer())
         .then(buf => new File([buf], filename,{type:mimeType}));
 }
+ //check for login if !authenticated
+ 
   useEffect(() => {
     fetchListQuizz();
   }, []);
@@ -182,15 +188,6 @@ const ManageQuestion = () => {
   const handleSaving = async() => {
     console.log('cjec', questions)
     console.log(selectedOption)
-// //summit q
-//     Promise.all(questions.map(async (question) => {
-//       const q = await PostNewQuestionForQuizz(+selectedOption.value, question.description, question.imageFile)
-// //summit a   
-//       await Promise.all(question.answers.map(async(answer)=> {
-//         await PostNewAnswerForQuizz(answer.description,answer.isCorrect,q.DT.id)
-//       }))
-//     }));
-
 //valite 
 let countCorrect = 0;
 
@@ -252,6 +249,8 @@ let countCorrect = 0;
     }
     
   }
+
+  
   return (
     <div className='ManageQuestion-container'>
       <div className='ManageQuestion-title'>

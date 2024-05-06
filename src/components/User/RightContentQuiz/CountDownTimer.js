@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
 
 const CountDownTimer = (props) => {
-    const [count, setCount] = useState(4);
-
+    const [count, setCount] = useState(100);
     useEffect(() => {
         if (count === 0) {
-            props.handleSubmit()
+            setTimeout(() =>{
+                props.onTimeUp();
+            }, 1000)
             return; // Stop the countdown when count reaches 0
         }
         const timer = setInterval(() => {
-            setCount((prevCount) => prevCount - 1);
+            setCount(count => count - 1);
         }, 1000);
-        return () => clearInterval(timer);
+        return() => {clearInterval(timer)}
     }, [count]);
 
     const toHHMMSS = (secs) => {

@@ -98,9 +98,26 @@ const ApiGetQuestionFromQuizId = (quizId) =>{
 }
 const ApiUpdateInsertQuizzWithQA = (data) => {
     return axios.post('api/v1/quiz-upsert-qa',{...data});
+}
+const ApiDashBoardOverView = () =>{
+    return axios.get('api/v1/overview');
+}
+const ApiChangePassword = (current_password,new_password) =>{
+    const FormData = require('form-data');
+    const form = new FormData();
+    form.append('current_password',current_password)
+    form.append('new_password',new_password)
+    return axios.post('api/v1/change-password',form)
+}
 
+const ApiUpdateProfile = (username,userImage) =>{
+    const FormData = require('form-data');
+    const form = new FormData();
+    form.append('username',username)
+    form.append('userImage',userImage)
+    return axios.post('api/v1/profile',form)
 }
 export { AppendApi, GetApi, UpdateApi, DeleteApi, GetUserPaginate, LoginApi, RegisterApi, 
         GetQuizzApi, GetDataQuizzApi, PostSubmitQuizzApi, PostQuestionApi, GetAllQuestionApi,
         DeleteQuestionApi, UpdateQuestionApi,PostNewQuestionForQuizz,PostNewAnswerForQuizz,AssignQuizToUser
-        ,ApiGetQuestionFromQuizId,ApiUpdateInsertQuizzWithQA }
+        ,ApiGetQuestionFromQuizId,ApiUpdateInsertQuizzWithQA, ApiDashBoardOverView,ApiChangePassword,ApiUpdateProfile }

@@ -6,7 +6,6 @@ import Header from "../../Header/Header";
 import './DetailQuizz.scss'
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Unstable_Grid2';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
@@ -14,19 +13,16 @@ import Question from "./Question";
 import { PostSubmitQuizzApi } from "../../services/ApiServices";
 import ModalResultQuizz from "./ModalResultQuizz";
 import RightContent from "./RightContentQuiz/RightContent";
-import CountDownTimer from './RightContentQuiz/CountDownTimer'
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
 
 const DetailQuizz = () => {
     const params = useParams();
     const location = useLocation();
-    // console.log('check lct', location);
-    // console.log('checkParam', params)
-
     const [dataQuizz, setDataQuizz] = useState([]);
     const [indexQues, setIndexQues] = useState(0);
     const [showModalResult, setShowModalResult] = useState(false);
     const [dataResultQuizz, setDataResultQuizz] = useState([]);
-
+    const [finish, setFinish] = useState(false)
     const quizzId = params.idcode;
     const Item = styled(Paper)(({ theme }) => ({
         backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -65,7 +61,6 @@ const DetailQuizz = () => {
             dataQuizzClone[index] = question;
             setDataQuizz(dataQuizzClone)
         }
-
     }
 
     const handleSubmit = async () => {
@@ -90,37 +85,35 @@ const DetailQuizz = () => {
                     userAnswerId: userAnswerIdArr,
                 });
             })
-
         }
         payload.answers = answersArr;
-        let response = await PostSubmitQuizzApi(payload);
-        console.log(response)
+        const response = await PostSubmitQuizzApi(payload);
+        // console.log(response)
         if (response && response.EC === 0) {
             setDataResultQuizz({
                 countCorrect: response.DT.countCorrect,
                 countTotal: response.DT.countTotal,
                 quizData: response.DT.quizData
             })
+            //Reset all answer to default
+            let dataQuizzClone = _.cloneDeep(dataQuizz)
+            dataQuizzClone.map(qs => {
+                qs.answerQus.map(as => {
+                    as.isSelected = false
+                })
+            })
+            setDataQuizz(dataQuizzClone)
             setShowModalResult(true)
-
+            setFinish(true)
+            // setSubmitted(true)
+            // return;
         } else {
             alert('Smthing wrong !');
         }
 
-
-        //Reset all answer to default
-        let dataQuizzClone = _.cloneDeep(dataQuizz)
-        dataQuizzClone.map(qs => {
-            // console.log(item)
-            qs.answerQus.map(as => {
-                as.isSelected = false
-            })
-        })
-        setDataQuizz(dataQuizzClone)
     }
 
 
-   
     const fetchApiQuestions = async () => {
         const data = await GetDataQuizzApi(quizzId);
         // console.log(data)
@@ -144,6 +137,7 @@ const DetailQuizz = () => {
 
                         // console.log("check ans",item.answers)
                     })
+                    answerQus = _.orderBy(answerQus, ['id'], ['asc']);
                     return { QuestionId: key, answerQus, questionDescription, img }
                 }
                 )
@@ -158,7 +152,7 @@ const DetailQuizz = () => {
     useEffect(() => {
         fetchApiQuestions()
     }, [quizzId])
-// console.log(quizzId)
+    // console.log(quizzId)
     const cardContentQuizz = () => (
         <div sx={{ maxWidth: 345 }} className="content-media-left">
 
@@ -177,62 +171,76 @@ const DetailQuizz = () => {
                     {location?.state?.quizzTitle}
                 </Typography>
             </CardContent>
-
         </div>
     )
+
     return (
-        <div className="DetailQuizz-container">
-            <div className="DQ-title">
-                <Header />
-            </div>
-            <div className="DQ-content">
-                <Grid container spacing={3} className="DQ-content-container">
-                    <Grid className="DQ-content-left">
-                        <Item className="DQ-content-left-title">LEFT
-                            {cardContentQuizz()}
+        <>
+            <div className="DetailQuizz-container">
+                <div className="DQ-title">
+                    {/* <Header /> */}
+                    <div className="breadcrumb">
+                        <Breadcrumb className="breadcrumbitem">
+                            <Breadcrumb.Item href="/" className="breadCrumb-href" >Home</Breadcrumb.Item>
+                            <Breadcrumb.Item href="/us" className="breadCrumb-href">
+                                List Quiz
+                            </Breadcrumb.Item>
+                            <Breadcrumb.Item active>Quiz</Breadcrumb.Item>
+                        </Breadcrumb>
+                    </div>
 
-                        </Item>
-                    </Grid>
-                    <Grid xs={6} className="DQ-content-mid">
-                        <Item className="DQ-content-mid-title">
-
-                            <div className="DQ-content-question">
-                                <Question
-                                    dataQ={dataQuizz && dataQuizz.length > 0 ? dataQuizz[indexQues] : []}
-                                    indexQ={indexQues}
-                                    setIndexQ={setIndexQues}
-                                    handleCheckBox={handleCheckBox}
-                                />
-                                <div className="btn-NextPreQuestion">
-                                    <button type="button" className="btn btn-primary  q-child-nextpreButton xs" onClick={() => handleOnPrevious()}>Pre</button>
-                                    <button type="button" className="btn btn-secondary  q-child-nextpreButton" onClick={() => handleOnNext()}>Next</button>
+                </div>
+                <div className="DQ-content">
+                    <div className="container">
+                        <div className="row DQ-content-container">
+                            <div className="col- DQ-content-left">
+                                <div className="DQ-content-left-title">
+                                    {cardContentQuizz()}
                                 </div>
                             </div>
-                        </Item>
-                    </Grid>
-                    <Grid xs className="DQ-content-right">
-                        <Item className="DQ-content-right-title">
-                            <CountDownTimer
-                                handleSubmit={handleSubmit}
-                            />
 
-                            <RightContent
-                                dataQuizz={dataQuizz}
-                            />
-                        </Item>
-                    </Grid>
-                </Grid>
+                            <div className="col-sm DQ-content-mid">
+                                <div className="DQ-content-mid-title">
+                                    <div className="DQ-content-question">
+                                        <Question
+                                            dataQ={dataQuizz && dataQuizz.length > 0 ? dataQuizz[indexQues] : []}
+                                            indexQ={indexQues}
+                                            setIndexQ={setIndexQues}
+                                            handleCheckBox={handleCheckBox}
+                                        />
+                                        <div className="btn-NextPreQuestion">
+                                            <button type="button" className="btn btn-primary  q-child-nextpreButton xs" onClick={() => handleOnPrevious()}>Pre</button>
+                                            <button type="button" className="btn btn-secondary  q-child-nextpreButton" onClick={() => handleOnNext()}>Next</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div className="col-sm DQ-content-right">
+                                <div className="DQ-content-right-title">
+                                    <RightContent
+                                        dataQuizz={dataQuizz}
+                                        handleSubmit={handleSubmit}
+                                        setIndexQ={setIndexQues}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div className="DQ-footer">
+
+                </div>
+                <ModalResultQuizz
+                    show={showModalResult}
+                    setShow={setShowModalResult}
+                    dataResult={dataResultQuizz}
+                />
             </div>
+        </>
 
-            <div className="DQ-footer">
-
-            </div>
-            <ModalResultQuizz
-                show={showModalResult}
-                setShow={setShowModalResult}
-                dataResult={dataResultQuizz}
-            />
-        </div>
     );
 };
 
