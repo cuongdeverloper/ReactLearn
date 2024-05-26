@@ -2,7 +2,7 @@ import videoHomePage from '../../assests/video-homepage.mp4'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import './HomePage.scss'
-import { useTranslation,Trans } from 'react-i18next'
+import { useTranslation,Trans } from 'react-i18next'   //src\utils\i18n.js  
 const HomePage = (props) => {
     const isAuthenticated = useSelector(state => state.user.isAuthenticated);
     const navigate = useNavigate();
