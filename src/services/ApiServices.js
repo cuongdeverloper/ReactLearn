@@ -117,7 +117,14 @@ const ApiUpdateProfile = (username,userImage) =>{
     form.append('userImage',userImage)
     return axios.post('api/v1/profile',form)
 }
+const getMongo = () =>{
+    return axios.get('v1/api/users',{withCredentials:true})
+}
+const getApiCustomerMongoDB = () =>{
+    return axios.get('v1/api/customers');
+}
 export { AppendApi, GetApi, UpdateApi, DeleteApi, GetUserPaginate, LoginApi, RegisterApi, 
         GetQuizzApi, GetDataQuizzApi, PostSubmitQuizzApi, PostQuestionApi, GetAllQuestionApi,
         DeleteQuestionApi, UpdateQuestionApi,PostNewQuestionForQuizz,PostNewAnswerForQuizz,AssignQuizToUser
-        ,ApiGetQuestionFromQuizId,ApiUpdateInsertQuizzWithQA, ApiDashBoardOverView,ApiChangePassword,ApiUpdateProfile }
+        ,ApiGetQuestionFromQuizId,ApiUpdateInsertQuizzWithQA, ApiDashBoardOverView,ApiChangePassword,
+        ApiUpdateProfile,getMongo,getApiCustomerMongoDB }

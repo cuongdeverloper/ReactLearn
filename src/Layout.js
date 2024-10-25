@@ -17,6 +17,8 @@ import ManageQuestion from "./components/Admin/ManageQuestion/ManageQuestion";
 import PrivateRoute from "./Routes/PrivateRoute";
 import React, {Suspense} from "react";
 import Profile from "./components/Profile/Profile";
+import TestMongo from "./Header/TestMongo";
+import TestApi from "./components/Home/TestApi";
 const NotFound = () => {
     return (
         <div className="mt-3 alert alert-danger">
@@ -72,6 +74,8 @@ const Layout = () => {
                     <Route path="/SignUp" element={<SignUp />} />
 
                     <Route path="/profile" element={<Profile/>} />
+                    <Route path="/testMG" element={<TestMongo/>} />
+                    <Route path="/testAPI" element={<TestApi/>} />
                     <Route path='*' element={<NotFound />} />
 
                 </Routes>
